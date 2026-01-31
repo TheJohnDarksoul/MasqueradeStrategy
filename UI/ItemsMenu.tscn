@@ -1,0 +1,320 @@
+[gd_scene format=3 uid="uid://dslnfmjmda8oo"]
+
+[ext_resource type="Texture2D" uid="uid://tiifkekii5g5" path="res://Black_Screen.png" id="1_essol"]
+[ext_resource type="Script" uid="uid://0x6uj2l3ymsr" path="res://UI/items_menu.gd" id="1_ml1bp"]
+[ext_resource type="Texture2D" uid="uid://camyhndglyvem" path="res://dommy_mommy.png" id="1_ts408"]
+[ext_resource type="Texture2D" uid="uid://bqjegqoeq5wig" path="res://GREEN GREEN GREEN.png" id="2_2sgci"]
+[ext_resource type="Texture2D" uid="uid://yhuct7n1qbe" path="res://Dark Blue.png" id="2_k6fbx"]
+[ext_resource type="Texture2D" uid="uid://baeakikk4jgs5" path="res://Dark Red.png" id="4_lvga2"]
+
+[node name="ItemsMenu" type="Control" unique_id=1210252718]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ml1bp")
+
+[node name="BlackScreen" type="Sprite2D" parent="." unique_id=1620009592]
+position = Vector2(576, 323)
+texture = ExtResource("1_essol")
+
+[node name="GreenGreenGreen" type="Sprite2D" parent="." unique_id=1444597410]
+position = Vector2(581, 722)
+scale = Vector2(1.0503472, 1)
+texture = ExtResource("2_2sgci")
+
+[node name="DarkRed" type="Sprite2D" parent="." unique_id=1882803774]
+position = Vector2(776.5, 535)
+scale = Vector2(0.6536459, 0.361)
+texture = ExtResource("4_lvga2")
+
+[node name="DarkBlue" type="Sprite2D" parent="." unique_id=625246388]
+position = Vector2(201.00003, 535)
+scale = Vector2(0.34895837, 0.3611111)
+texture = ExtResource("2_k6fbx")
+
+[node name="Items" type="Label" parent="." unique_id=1248665589]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.49300003
+anchor_top = 0.05
+anchor_right = 0.49300003
+anchor_bottom = 0.05
+offset_left = -17.936035
+offset_top = -12.400002
+offset_right = 375.06396
+offset_bottom = 54.6
+theme_override_font_sizes/font_size = 48
+text = "Items/wEAPONS"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="CharacterPortrait" type="VBoxContainer" parent="." unique_id=1808407109]
+layout_mode = 0
+offset_right = 281.0
+offset_bottom = 266.0
+
+[node name="DommyMommy" type="Sprite2D" parent="CharacterPortrait" unique_id=2062562704]
+position = Vector2(93, 130)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ts408")
+
+[node name="ItemsBox" type="VBoxContainer" parent="." unique_id=101950570]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.40100002
+anchor_top = 0.17400001
+anchor_right = 0.40100002
+anchor_bottom = 0.17400001
+offset_left = 188.04797
+offset_top = -37.752007
+offset_right = 367.04797
+offset_bottom = 150.24799
+grow_horizontal = 2
+alignment = 1
+
+[node name="PlaceHolder1" type="Label" parent="ItemsBox" unique_id=1117161379]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "placeholder:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlaceHolder2" type="Label" parent="ItemsBox" unique_id=1820271523]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "placeholder:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlaceHolder3" type="Label" parent="ItemsBox" unique_id=1123479486]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "placeholder:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level" type="Label" parent="." unique_id=984509172]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.002
+anchor_top = 0.65900004
+anchor_right = 0.002
+anchor_bottom = 0.65900004
+offset_left = 17.696
+offset_top = 7.967987
+offset_right = 151.696
+offset_bottom = 74.96799
+theme_override_font_sizes/font_size = 48
+text = "Level:"
+
+[node name="LevelNum" type="Label" parent="Level" unique_id=2100874018]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0370001
+anchor_top = 0.179
+anchor_right = 1.0370001
+anchor_bottom = 0.179
+offset_left = 0.041992188
+offset_top = 0.0069999695
+offset_right = 271.042
+offset_bottom = 45.007
+theme_override_font_sizes/font_size = 32
+text = "Num"
+
+[node name="Level3" type="Label" parent="." unique_id=1220296385]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.002
+anchor_top = 0.65900004
+anchor_right = 0.002
+anchor_bottom = 0.65900004
+offset_left = 418.696
+offset_top = 1.9679871
+offset_right = 578.696
+offset_bottom = 68.96799
+theme_override_font_sizes/font_size = 36
+text = "Strength:"
+
+[node name="Label" type="Label" parent="Level3" unique_id=1798280226]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0370001
+anchor_top = 0.179
+anchor_right = 1.0370001
+anchor_bottom = 0.179
+offset_left = 0.079956055
+offset_top = -6.993
+offset_right = 271.07996
+offset_bottom = 38.007
+theme_override_font_sizes/font_size = 32
+text = "Num"
+
+[node name="Level5" type="Label" parent="." unique_id=1799978367]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.002
+anchor_top = 0.65900004
+anchor_right = 0.002
+anchor_bottom = 0.65900004
+offset_left = 418.696
+offset_top = 76.96799
+offset_right = 644.696
+offset_bottom = 143.96799
+theme_override_font_sizes/font_size = 36
+text = "Constitution:"
+
+[node name="Label" type="Label" parent="Level5" unique_id=1015041572]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0370001
+anchor_top = 0.179
+anchor_right = 1.0370001
+anchor_bottom = 0.179
+offset_left = 0.079956055
+offset_top = -6.993
+offset_right = 271.07996
+offset_bottom = 38.007
+theme_override_font_sizes/font_size = 32
+text = "Num"
+
+[node name="Level4" type="Label" parent="." unique_id=1592390857]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.002
+anchor_top = 0.65900004
+anchor_right = 0.002
+anchor_bottom = 0.65900004
+offset_left = 849.696
+offset_top = 1.9679871
+offset_right = 1020.696
+offset_bottom = 68.96799
+theme_override_font_sizes/font_size = 36
+text = "Dexterity:"
+
+[node name="Label" type="Label" parent="Level4" unique_id=891148182]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0370001
+anchor_top = 0.179
+anchor_right = 1.0370001
+anchor_bottom = 0.179
+offset_left = 0.079956055
+offset_top = -6.993
+offset_right = 271.07996
+offset_bottom = 38.007
+theme_override_font_sizes/font_size = 32
+text = "Num"
+
+[node name="Level6" type="Label" parent="." unique_id=1531554982]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.002
+anchor_top = 0.65900004
+anchor_right = 0.002
+anchor_bottom = 0.65900004
+offset_left = 849.696
+offset_top = 76.96799
+offset_right = 1020.696
+offset_bottom = 143.96799
+theme_override_font_sizes/font_size = 36
+text = "Agility:"
+
+[node name="Label" type="Label" parent="Level6" unique_id=337944348]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0370001
+anchor_top = 0.179
+anchor_right = 1.0370001
+anchor_bottom = 0.179
+offset_left = -51.327026
+offset_top = -6.993
+offset_right = 219.67299
+offset_bottom = 38.007
+theme_override_font_sizes/font_size = 32
+text = "Num"
+
+[node name="Level7" type="Label" parent="." unique_id=34770572]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.002
+anchor_top = 0.65900004
+anchor_right = 0.002
+anchor_bottom = 0.65900004
+offset_left = 674.696
+offset_top = 151.96799
+offset_right = 845.696
+offset_bottom = 218.96799
+theme_override_font_sizes/font_size = 36
+text = "Magic:"
+
+[node name="Label" type="Label" parent="Level7" unique_id=483993975]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0370001
+anchor_top = 0.179
+anchor_right = 1.0370001
+anchor_bottom = 0.179
+offset_left = -59.327026
+offset_top = -6.993
+offset_right = 211.67299
+offset_bottom = 38.007
+theme_override_font_sizes/font_size = 32
+text = "Num"
+
+[node name="Stats" type="Label" parent="." unique_id=445320535]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.002
+anchor_top = 0.65900004
+anchor_right = 0.002
+anchor_bottom = 0.65900004
+offset_left = 505.696
+offset_top = -97.03201
+offset_right = 639.696
+offset_bottom = -30.032013
+theme_override_colors/font_color = Color(0.22526532, 0.9109659, 0.95096856, 1)
+theme_override_font_sizes/font_size = 48
+text = "Stats"
+
+[node name="HP" type="Label" parent="." unique_id=1595463783]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.002
+anchor_top = 0.84900004
+anchor_right = 0.002
+anchor_bottom = 0.84900004
+offset_left = 17.696
+offset_top = 7.8479614
+offset_right = 151.696
+offset_bottom = 74.84796
+theme_override_font_sizes/font_size = 48
+text = "HP:"
+
+[node name="HPNum" type="Label" parent="HP" unique_id=953140741]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.694
+anchor_top = 0.179
+anchor_right = 0.694
+anchor_bottom = 0.179
+offset_left = 0.0039978027
+offset_top = 0.0069999695
+offset_right = 271.004
+offset_bottom = 45.007
+theme_override_font_sizes/font_size = 32
+text = "Num/Num"
+
+[node name="Button" type="Button" parent="." unique_id=693292022]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 291.0
+offset_right = 186.0
+offset_bottom = 366.0
+theme_override_font_sizes/font_size = 48
+text = "Back"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
