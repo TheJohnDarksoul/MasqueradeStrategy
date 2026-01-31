@@ -1,0 +1,33 @@
+[gd_scene format=4 uid="uid://chcusx80dvpkr"]
+
+[ext_resource type="Script" uid="uid://wd0yckqsrh80" path="res://Scripts/main.gd" id="1_kln2b"]
+[ext_resource type="PackedScene" uid="uid://ldn7wcsxw76r" path="res://Scenes/Character.tscn" id="2_kln2b"]
+[ext_resource type="Texture2D" uid="uid://cbyf344fsche6" path="res://Assets/Level/tile_example.png" id="2_rgh2o"]
+[ext_resource type="Script" uid="uid://3cit3csf5xkm" path="res://Scripts/camera_2d.gd" id="4_rgh2o"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pbw6q"]
+texture = ExtResource("2_rgh2o")
+texture_region_size = Vector2i(40, 36)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_pbw6q"]
+tile_shape = 3
+tile_offset_axis = 1
+tile_size = Vector2i(40, 36)
+sources/2 = SubResource("TileSetAtlasSource_pbw6q")
+
+[node name="Main" type="Node2D" unique_id=138770015]
+script = ExtResource("1_kln2b")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=737212149]
+tile_map_data = PackedByteArray("AAAAAAAAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAMAAgAAAAAAAAABAAAAAgAAAAAAAAABAAEAAgAAAAAAAAABAAIAAgAAAAAAAAABAAMAAgAAAAAAAAACAAAAAgAAAAAAAAACAAEAAgAAAAAAAAACAAIAAgAAAAAAAAACAAMAAgAAAAAAAAADAAAAAgAAAAAAAAADAAEAAgAAAAAAAAADAAIAAgAAAAAAAAADAAMAAgAAAAAAAAAEAAAAAgAAAAAAAAAEAAEAAgAAAAAAAAAEAAIAAgAAAAAAAAAEAAMAAgAAAAAAAAADAAQAAgAAAAAAAAAEAAQAAgAAAAAAAAAAAAQAAgAAAAAAAAAAAAUAAgAAAAAAAAABAAQAAgAAAAAAAAABAAUAAgAAAAAAAAACAAQAAgAAAAAAAAACAAUAAgAAAAAAAAADAAUAAgAAAAAAAAAEAAUAAgAAAAAAAAAFAAAAAgAAAAAAAAAFAAEAAgAAAAAAAAAFAAIAAgAAAAAAAAAFAAMAAgAAAAAAAAAFAAQAAgAAAAAAAAAFAAUAAgAAAAAAAAAGAAAAAgAAAAAAAAAGAAEAAgAAAAAAAAAGAAIAAgAAAAAAAAAGAAMAAgAAAAAAAAAGAAQAAgAAAAAAAAAGAAUAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_pbw6q")
+
+[node name="Char" parent="." unique_id=185048074 instance=ExtResource("2_kln2b")]
+position = Vector2(20, 18)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1850589226]
+script = ExtResource("4_rgh2o")
