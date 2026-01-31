@@ -17,3 +17,14 @@ export_credentials.cfg
 data_*/
 mono_crash.*.json
 *.import
+Assets/Level/tile_woodplanks_02.png.import
+Assets/Level/tile_woodplanks_01.png.import
+Assets/Level/tile_wall_corner.png.import
+Assets/Level/tile_wall.png.import
+Assets/Level/tile_grass_01.png.import
+Assets/Level/tile_checker_02.png.import
+Assets/Level/tile_checker_01.png.import
+Assets/Level/tile_carpet_01.png.import
+Assets/Level/background_01.png.import
+Assets/Characters/waif.jpg.import
+Assets/Characters/dommy_mommy.png.import
