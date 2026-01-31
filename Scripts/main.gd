@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var Tilemap = $TileMapLayer
-@onready var Char = $Char
+@onready var Char = $Unit
 
 
 func _input(event):
