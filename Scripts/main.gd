@@ -2,50 +2,82 @@ extends Node2D
 
 @onready var Tilemap: TileMapLayer = $TileMapLayer
 @onready var highlight_map: TileMapLayer = $HighlightMap
-@onready var char = $Unit
-
+@onready var char
 
 var astar := AStar2D.new()
 var movement := 3
 
+var mvt_setup = false
+
+var start_cell
+
+enum GameState {
+	MOVING,
+	SELECTING,
+	ACTION
+}
+var current_state: GameState = GameState.SELECTING
+
 
 func _ready() -> void:
-	
 	highlight_map.visible = true
 	highlight_map.modulate = Color(0.115, 0.69, 0.0, 0.38)
-	
 	rebuild_pathfinding(Tilemap)
-	
-	var start_cell := Tilemap.local_to_map(Tilemap.to_local(char.global_position))
-	var reachable := get_reachable_cells(start_cell, movement)
-	highlight_reachable(reachable)
-	
-	print("A* nodes:", astar.get_point_count())
 
+	
+func _process(delta):
+	if current_state == GameState.MOVING:
+		if mvt_setup == true:
+			start_cell = Tilemap.local_to_map(Tilemap.to_local(char.global_position))
+			var reachable = get_reachable_cells(start_cell, movement)
+			highlight_reachable(reachable)
+			mvt_setup = false
+			
+			
+		
+	
 	
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			var click_pos := get_global_mouse_position()
-			var target_cell := Tilemap.local_to_map(Tilemap.to_local(click_pos))
-			var start_cell := Tilemap.local_to_map(Tilemap.to_local(char.global_position))
+			if current_state == GameState.MOVING:
+				
+				var click_pos := get_global_mouse_position()
+				var target_cell := Tilemap.local_to_map(Tilemap.to_local(click_pos))
+				
+				if not target_cell in Tilemap.get_used_cells():
+					return
 
-			if not target_cell in Tilemap.get_used_cells():
-				return
-
-			var path := find_path(Tilemap, start_cell, target_cell)
-
-			# Path must exist and be within movement range
-			if path.is_empty():
-				return
-
-			var steps := path.size() - 1
-			if steps <= movement:
-				# Move to final tile (for now: instant move)
-				char.global_position = path[-1]
 				start_cell = Tilemap.local_to_map(Tilemap.to_local(char.global_position))
-				var reachable = get_reachable_cells(start_cell, movement)
-				highlight_reachable(reachable)
+				var path := find_path(Tilemap, start_cell, target_cell)
+
+				# Path must exist and be within movement range
+				if path.is_empty():
+					return
+
+				var steps := path.size() - 1
+				if steps <= movement:
+					# Move to final tile (for now: instant move)
+					char.global_position = path[-1]
+					rebuild_pathfinding(Tilemap)
+					highlight_map.clear()
+					current_state = GameState.SELECTING
+					
+					
+			elif current_state == GameState.SELECTING:
+				var click_pos := get_global_mouse_position()
+				var target_cell := Tilemap.local_to_map(Tilemap.to_local(click_pos))
+				var units = get_unit_and_location()
+				
+				for u in units:
+					if target_cell == u[1]:
+						char = u[0]
+						rebuild_pathfinding(Tilemap)
+						mvt_setup = true
+						current_state = GameState.MOVING
+						
+
+
 
 
 func build_astar(tilemap: TileMapLayer) -> void:
@@ -125,20 +157,6 @@ func highlight_reachable(reachable_cells: Array[Vector2i]) -> void:
 		highlight_map.set_cell(cell, 1, Vector2i(0, 0))
 		
 		
-#func get_unit_cells():
-	#var units = find_children("Unit")
-	#if units.has(char):
-		## 2. Remove the instance from the array
-		#units.erase(char)
-		#print("Removed child from the array.")
-	#
-	#var cells = []
-	#for u in units:
-		#var global = u.global_position
-		#var cell = Tilemap.local_to_map(Tilemap.to_local(global))
-		#cells.append(cell)
-	#return cells
-	#
 func get_unit_cells():
 	var units = get_tree().get_nodes_in_group("units")
 	var cells = []
@@ -149,4 +167,18 @@ func get_unit_cells():
 		var global = u.global_position
 		var cell = Tilemap.local_to_map(Tilemap.to_local(global))
 		cells.append(cell)
+	return cells
+	
+	
+	
+func get_unit_and_location():
+	var units = get_tree().get_nodes_in_group("units")
+	var cells = []
+	for u in units:
+		# Skip the current character unit
+		#if u == char:
+			#continue
+		var global = u.global_position
+		var cell = Tilemap.local_to_map(Tilemap.to_local(global))
+		cells.append([u,cell])
 	return cells
