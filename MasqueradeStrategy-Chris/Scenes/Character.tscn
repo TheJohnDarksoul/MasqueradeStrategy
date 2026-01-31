@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ldn7wcsxw76r"]
+
+[ext_resource type="Texture2D" uid="uid://bqaootkcaijwh" path="res://Assets/Characters/dommy_mommy.png" id="1_0y7nr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jo2ib"]
+size = Vector2(13.999998, 17.999998)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=185048074]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=186038894]
+position = Vector2(2.3841858e-07, -1.7881393e-07)
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("RectangleShape2D_jo2ib")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1376179524]
+position = Vector2(-2.3841858e-07, 0)
+scale = Vector2(0.03636665, 0.03496503)
+texture = ExtResource("1_0y7nr")
