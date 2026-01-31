@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="UnitClass" format=3 uid="uid://d2myv32jfa7es"]
+
+[ext_resource type="Script" uid="uid://fdhqqq546x6w" path="res://Scripts/UnitClass.gd" id="1_ciad6"]
+
+[resource]
+script = ExtResource("1_ciad6")
+name = "Archeologist"
+movement = 5
+weaponTypes = Array[int]([0])

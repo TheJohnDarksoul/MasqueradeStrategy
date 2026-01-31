@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="UnitClass" format=3 uid="uid://0appse7kc36x"]
+
+[ext_resource type="Script" uid="uid://fdhqqq546x6w" path="res://Scripts/UnitClass.gd" id="1_a5cq1"]
+
+[resource]
+script = ExtResource("1_a5cq1")
+name = "Pugilist"
+movement = 4
+weaponTypes = Array[int]([3])
