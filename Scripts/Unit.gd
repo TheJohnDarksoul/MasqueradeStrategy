@@ -24,8 +24,15 @@ enum Armies {PLAYER_ARMY, COMPUTER_ARMY}
 
 var currentHp:int
 
+@export_category("Unit Data")
 ##An array of Items in the unit's inventory
 @export var inventory:Array[Item]
+
+##Holds shared class attributes
+@export var unitClass:UnitClass
+
+##Holds unit portrait, not map sprite
+@export var charPortrait:CompressedTexture2D
 
 #Don't know how to make a static const. Don't touch this at runtime
 static var modifierTable:Array[int] = [-5, -5, -4, -4, -3, -3, -2, -2,

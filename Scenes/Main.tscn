@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cbyf344fsche6" path="res://Assets/Level/tile_example.png" id="2_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://dmwaxq3se2m8w" path="res://Scenes/Unit.tscn" id="4_pbw6q"]
 [ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="4_rgh2o"]
+[ext_resource type="Resource" uid="uid://hn0ifhmfhg6n" path="res://Resources/Classes/Detective.tres" id="5_pbw6q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pbw6q"]
 texture = ExtResource("2_rgh2o")
@@ -33,6 +34,7 @@ script = ExtResource("4_rgh2o")
 position = Vector2(19, 17)
 UnitName = "Mommy, sorry mommy"
 army = 0
+unitClass = ExtResource("5_pbw6q")
 
 [node name="Unit2" parent="." unique_id=1208485951 instance=ExtResource("4_pbw6q")]
 position = Vector2(20, 54)

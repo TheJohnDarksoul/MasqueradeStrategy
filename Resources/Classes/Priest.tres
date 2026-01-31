@@ -7,3 +7,4 @@ script = ExtResource("1_wetyi")
 name = "Priest"
 movement = 4
 weaponTypes = Array[int]([2])
+canUseStaves = true

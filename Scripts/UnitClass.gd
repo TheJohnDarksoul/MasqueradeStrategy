@@ -4,3 +4,5 @@ class_name UnitClass extends Resource
 @export var movement:int
 
 @export var weaponTypes:Array[globs.weaponTypes]
+
+@export var canUseStaves:bool
