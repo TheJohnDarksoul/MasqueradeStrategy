@@ -9,3 +9,10 @@ var currentUses:int
 func _init() -> void:
 	itemFlag = itemType.CONSUME
 	currentUses = maxUses
+
+func doEffect():
+	match effect:
+		#Healing item
+		itemEffects.ITEM_HEAL:
+			#Do something
+			pass
