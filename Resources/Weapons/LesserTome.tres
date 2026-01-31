@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://byo1r0i0fnqet"]
+
+[ext_resource type="Script" uid="uid://cuvrebbw72p8g" path="res://Scripts/Items/Weapon.gd" id="1_sd5sy"]
+
+[resource]
+script = ExtResource("1_sd5sy")
+damage = 4
+weaponType = 2
+accuracy = 80
+weaponRange = 2
+name = "Lesser Eldritch Blast"

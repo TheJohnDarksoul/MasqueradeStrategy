@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="UnitClass" format=3 uid="uid://ehe48r4ecbot"]
+
+[ext_resource type="Script" uid="uid://fdhqqq546x6w" path="res://Scripts/UnitClass.gd" id="1_re0yi"]
+
+[resource]
+script = ExtResource("1_re0yi")
+name = "Occultist"
+movement = 4
+weaponTypes = Array[int]([2])

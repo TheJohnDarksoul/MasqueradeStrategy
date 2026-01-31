@@ -4,19 +4,36 @@ extends Node2D
 
 enum Armies {PLAYER_ARMY, COMPUTER_ARMY}
 
+##Displayed unit name
 @export var UnitName:String = "Generic Goon"
 
 @export var army:Armies = Armies.COMPUTER_ARMY
 
 @export_category("Stats")
+##Max hp value for this unit
 @export var maxHp:int = 10
+##Unit's strength stat
 @export var Str:int = 0
+##Unit's dexterity stat
 @export var Dex:int = 0
+##Unit's magic stat
 @export var Mag:int = 0
+##Unit's constitution stat
 @export var Con:int = 0
+##Unit's agility stat
 @export var Agi:int = 0
 
 var currentHp:int
+
+@export_category("Unit Data")
+##An array of Items in the unit's inventory
+@export var inventory:Array[Item]
+
+##Holds shared class attributes
+@export var unitClass:UnitClass
+
+##Holds unit portrait, not map sprite
+@export var charPortrait:CompressedTexture2D
 
 #Don't know how to make a static const. Don't touch this at runtime
 static var modifierTable:Array[int] = [-5, -5, -4, -4, -3, -3, -2, -2,

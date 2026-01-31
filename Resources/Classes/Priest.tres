@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UnitClass" format=3 uid="uid://44qc7b737st1"]
+
+[ext_resource type="Script" uid="uid://fdhqqq546x6w" path="res://Scripts/UnitClass.gd" id="1_wetyi"]
+
+[resource]
+script = ExtResource("1_wetyi")
+name = "Priest"
+movement = 4
+weaponTypes = Array[int]([2])
+canUseStaves = true
