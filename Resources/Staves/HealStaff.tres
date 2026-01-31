@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Staff" format=3 uid="uid://dbghqutjkffww"]
+
+[ext_resource type="Script" uid="uid://c80pfutnka5u8" path="res://Scripts/Items/Staff.gd" id="1_xpc21"]
+
+[resource]
+script = ExtResource("1_xpc21")
+amountHealed = 10
+maxUses = 15
+itemFlag = 1
+name = "Worn-Out Holy Symbol"

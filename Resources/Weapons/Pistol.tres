@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://bmajdeart53fx"]
 
-[ext_resource type="Script" uid="uid://cuvrebbw72p8g" path="res://Scripts/Items/Weapon.gd" id="1_f87hg"]
+[ext_resource type="Script" uid="uid://cuvrebbw72p8g" path="res://Scripts/Items/Weapon.gd" id="1_2uslf"]
 
 [resource]
-script = ExtResource("1_f87hg")
+script = ExtResource("1_2uslf")
 damage = 6
 weaponType = 1
-accuracy = 70
+accuracy = 85
 weaponRange = 2
 name = "Pistol"
