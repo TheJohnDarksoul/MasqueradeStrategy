@@ -36,9 +36,8 @@ var currentHp:int
 ##Holds unit portrait, not map sprite
 @export var charPortrait:CompressedTexture2D
 
-#Don't know how to make a static const. Don't touch this at runtime
-static var modifierTable:Array[int] = [-5, -5, -4, -4, -3, -3, -2, -2,
--1, -1, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5]
+var animPos:Vector2
+var targetPos:Vector2
 
 func _ready() -> void:
 	add_to_group("units")
