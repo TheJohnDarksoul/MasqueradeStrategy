@@ -12,6 +12,10 @@
 [ext_resource type="Resource" uid="uid://n0k2ufmbogmh" path="res://Resources/Weapons/Shotgun.tres" id="8_bmxlf"]
 [ext_resource type="Resource" uid="uid://bmajdeart53fx" path="res://Resources/Weapons/Pistol.tres" id="10_bmxlf"]
 [ext_resource type="Texture2D" uid="uid://jnimhax8dypo" path="res://Assets/Characters/waif.jpg" id="11_frkhe"]
+[ext_resource type="Resource" uid="uid://0appse7kc36x" path="res://Resources/Classes/Pugilist.tres" id="12_1p5hy"]
+[ext_resource type="Resource" uid="uid://c3dfman2d8hi3" path="res://Resources/Weapons/BrassKnuckles.tres" id="12_erwvk"]
+[ext_resource type="Resource" uid="uid://ehe48r4ecbot" path="res://Resources/Classes/Occultist.tres" id="13_h1m7h"]
+[ext_resource type="Resource" uid="uid://b721udlr7gimv" path="res://Resources/Weapons/Shortsword.tres" id="14_2w5on"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pbw6q"]
 texture = ExtResource("2_rgh2o")
@@ -81,11 +85,15 @@ unitClass = ExtResource("7_jw32o")
 position = Vector2(50, 108)
 scale = Vector2(0.069, 0.067)
 texture = ExtResource("11_frkhe")
+inventory = Array[ExtResource("7_vy5pj")]([ExtResource("12_erwvk")])
+unitClass = ExtResource("12_1p5hy")
 
 [node name="Unit3" parent="." unique_id=1877881053 instance=ExtResource("4_pbw6q")]
 position = Vector2(80, 54)
 scale = Vector2(0.069, 0.069)
 texture = ExtResource("11_frkhe")
+inventory = Array[ExtResource("7_vy5pj")]([ExtResource("14_2w5on")])
+unitClass = ExtResource("13_h1m7h")
 
 [node name="Unit4" parent="." unique_id=1834697755 instance=ExtResource("4_pbw6q")]
 position = Vector2(20, 54.000008)
