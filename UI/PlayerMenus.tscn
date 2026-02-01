@@ -33,6 +33,7 @@ texture = ExtResource("3_bk84e")
 texture = ExtResource("3_bk84e")
 
 [node name="PlayerMenu" type="Control" unique_id=584369214]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

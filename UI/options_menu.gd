@@ -5,13 +5,10 @@ extends Control
 var toggle = false
 
 func _on_h_slider_value_changed(value: float) -> void:
-	music.sound.volume_db = -72
-	m_slider.value += 0.001
-
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(value))
 
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://UI/main_menu.tscn")
-
 
 func _on_toggle_fullscreen_pressed() -> void:
 	toggle = !toggle

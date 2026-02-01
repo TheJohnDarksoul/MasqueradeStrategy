@@ -155,9 +155,13 @@ func _input(event):
 				if steps <= char.inventory[0].weaponRange:
 					print("attacked enemy")
 					# DO ATTACK STUFF HERE __________________________________________________
-					enemy.takeDamage(char.calcDamage())
 					
-					print("Enemy took " , char.calcDamage() , " damage")
+					var check = randi_range(1, 100)
+					if char.calcHitrate(enemy) <= check:
+						enemy.takeDamage(char.calcDamage(enemy))
+						print("Enemy took " , char.calcDamage(enemy) , " damage")
+					else:
+						print("Character Missed")
 				
 					highlight_map.clear()
 					globs.char_to_act.erase(char)
@@ -338,13 +342,16 @@ func doEnemyTurns():
 				charToHit.append(u[0])
 				
 		if charToHit.is_empty():
-			print("1 enemy didn't hit")
+			print("1 enemy couldn't hit")
 		else:
 			var charHit = charToHit.pick_random()
-			var dmg = enemy.calcDamage()
-			charHit.takeDamage(dmg)
-			print("Char took " , dmg , " damage")
-				
+			var dmg = enemy.calcDamage(charHit)
+			var check = randi_range(1, 100)
+			if enemy.calcHitrate(charHit) <= check:
+				charHit.takeDamage(dmg)
+				print("Char took " , dmg , " damage")
+			else:
+				print("1 enemy didn't hit")
 		
 			
 		
