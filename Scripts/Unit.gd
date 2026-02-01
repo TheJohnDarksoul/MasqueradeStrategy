@@ -90,3 +90,10 @@ func takeDamage(dmg:int):
 	
 	if currentHp <= 0:
 		queue_free()
+
+func attackAnim():
+	var tween = create_tween()
+	
+	tween.tween_property(self, "position", targetPos, 0.75)
+	
+	tween.tween_property(self, "position", animPos, 0.75)
