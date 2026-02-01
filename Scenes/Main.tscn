@@ -6,7 +6,16 @@
 [ext_resource type="Script" uid="uid://3cit3csf5xkm" path="res://Scripts/camera_2d.gd" id="4_rgh2o"]
 [ext_resource type="Texture2D" uid="uid://cbyf344fsche6" path="res://Assets/Level/tile_example.png" id="4_v1gob"]
 [ext_resource type="Texture2D" uid="uid://cr1k382shxiq2" path="res://Assets/Level/background_01.png" id="5_pbw6q"]
+[ext_resource type="Texture2D" uid="uid://bqaootkcaijwh" path="res://Assets/Characters/dommy_mommy.png" id="7_grg3l"]
 [ext_resource type="Resource" uid="uid://hn0ifhmfhg6n" path="res://Resources/Classes/Detective.tres" id="7_jw32o"]
+[ext_resource type="Script" uid="uid://b6gwelqj271c4" path="res://Scripts/Items/Item.gd" id="7_vy5pj"]
+[ext_resource type="Resource" uid="uid://n0k2ufmbogmh" path="res://Resources/Weapons/Shotgun.tres" id="8_bmxlf"]
+[ext_resource type="Resource" uid="uid://bmajdeart53fx" path="res://Resources/Weapons/Pistol.tres" id="10_bmxlf"]
+[ext_resource type="Texture2D" uid="uid://jnimhax8dypo" path="res://Assets/Characters/waif.jpg" id="11_frkhe"]
+[ext_resource type="Resource" uid="uid://0appse7kc36x" path="res://Resources/Classes/Pugilist.tres" id="12_1p5hy"]
+[ext_resource type="Resource" uid="uid://c3dfman2d8hi3" path="res://Resources/Weapons/BrassKnuckles.tres" id="12_erwvk"]
+[ext_resource type="Resource" uid="uid://ehe48r4ecbot" path="res://Resources/Classes/Occultist.tres" id="13_h1m7h"]
+[ext_resource type="Resource" uid="uid://b721udlr7gimv" path="res://Resources/Weapons/Shortsword.tres" id="14_2w5on"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pbw6q"]
 texture = ExtResource("2_rgh2o")
@@ -64,19 +73,33 @@ tile_set = SubResource("TileSet_v1gob")
 script = ExtResource("4_rgh2o")
 
 [node name="Unit" parent="." unique_id=1350438727 instance=ExtResource("4_pbw6q")]
-position = Vector2(19, 17)
+position = Vector2(50, 36)
+scale = Vector2(0.039, 0.039)
+texture = ExtResource("7_grg3l")
 UnitName = "Mommy, sorry mommy"
 army = 0
+inventory = Array[ExtResource("7_vy5pj")]([ExtResource("8_bmxlf")])
 unitClass = ExtResource("7_jw32o")
 
 [node name="Unit2" parent="." unique_id=1208485951 instance=ExtResource("4_pbw6q")]
-position = Vector2(172, 144)
+position = Vector2(50, 108)
+scale = Vector2(0.069, 0.067)
+texture = ExtResource("11_frkhe")
+inventory = Array[ExtResource("7_vy5pj")]([ExtResource("12_erwvk")])
+unitClass = ExtResource("12_1p5hy")
 
 [node name="Unit3" parent="." unique_id=1877881053 instance=ExtResource("4_pbw6q")]
-position = Vector2(139, 91)
+position = Vector2(80, 54)
+scale = Vector2(0.069, 0.069)
+texture = ExtResource("11_frkhe")
+inventory = Array[ExtResource("7_vy5pj")]([ExtResource("14_2w5on")])
+unitClass = ExtResource("13_h1m7h")
 
 [node name="Unit4" parent="." unique_id=1834697755 instance=ExtResource("4_pbw6q")]
-position = Vector2(19, 91)
+position = Vector2(20, 54.000008)
+scale = Vector2(0.039, 0.033)
+texture = ExtResource("7_grg3l")
 UnitName = "Mommy, sorry mommy"
 army = 0
+inventory = Array[ExtResource("7_vy5pj")]([ExtResource("10_bmxlf")])
 unitClass = ExtResource("7_jw32o")
