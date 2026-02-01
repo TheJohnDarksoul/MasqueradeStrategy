@@ -27,6 +27,7 @@ var currentHp:int
 
 @export_category("Unit Data")
 ##An array of Items in the unit's inventory
+@export var level:int = 1
 @export var inventory:Array[Item]
 
 ##Holds shared class attributes
@@ -55,7 +56,12 @@ func _physics_process(delta: float) -> void:
 
 #This function assumes that the first item is a weapon
 func calcDamage():
-	var dmg = Str
+	var dmg
+	#var def
+	if inventory[0].weaponType == globs.weaponTypes.TOME:
+		dmg = Mag
+	else:
+		dmg = Str
 	dmg += inventory[0].damage
 	return dmg
 
