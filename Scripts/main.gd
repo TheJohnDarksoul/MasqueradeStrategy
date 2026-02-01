@@ -9,14 +9,18 @@ var movement := 3
 
 var mvt_setup = false
 
+var char_to_act = []
 var start_cell
 
 enum GameState {
-	MOVING,
+	BEGIN_TURN,
 	SELECTING,
-	ACTION
+	CHOOSING,
+	MOVING,
+	ATTACKING,
+	ENEMY_TURN,
 }
-var current_state: GameState = GameState.SELECTING
+var current_state: GameState = GameState.BEGIN_TURN
 
 
 func _ready() -> void:
@@ -24,19 +28,23 @@ func _ready() -> void:
 	highlight_map.modulate = Color(0.115, 0.69, 0.0, 0.38)
 	rebuild_pathfinding(Tilemap)
 
-	
+
 func _process(delta):
-	if current_state == GameState.MOVING:
+	if current_state == GameState.MOVING or current_state == GameState.ATTACKING:
 		if mvt_setup == true:
 			start_cell = Tilemap.local_to_map(Tilemap.to_local(char.global_position))
 			var reachable = get_reachable_cells(start_cell, movement)
 			highlight_reachable(reachable)
 			mvt_setup = false
-			
-			
+	if current_state == GameState.BEGIN_TURN:
+		char_to_act.append_array(get_friendly_units())
+		print(char_to_act)
+		current_state = GameState.SELECTING
 		
-	
-	
+	if current_state == GameState.ENEMY_TURN:
+		print("ENEMY TURN")
+			
+			
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -61,24 +69,39 @@ func _input(event):
 					char.global_position = path[-1]
 					rebuild_pathfinding(Tilemap)
 					highlight_map.clear()
+					char_to_act.erase(char)
 					current_state = GameState.SELECTING
 					
 					
 			elif current_state == GameState.SELECTING:
+				if len(char_to_act) == 0:
+					current_state = GameState.ENEMY_TURN
+				
 				var click_pos := get_global_mouse_position()
 				var target_cell := Tilemap.local_to_map(Tilemap.to_local(click_pos))
 				var units = get_unit_and_location()
 				
 				for u in units:
 					if target_cell == u[1]:
-						char = u[0]
-						rebuild_pathfinding(Tilemap)
-						mvt_setup = true
-						current_state = GameState.MOVING
+						if u[0].army == 0 and u[0] in char_to_act:
+							char = u[0]
+							globs.selectedPlayer = u[0]
+							rebuild_pathfinding(Tilemap)
+							mvt_setup = true
+							current_state = GameState.CHOOSING
 						
-
-
-
+	if event is InputEventKey:
+		if current_state == GameState.CHOOSING:
+			if event.keycode == KEY_A and event.pressed:
+				print("Changed to Attacking")
+				current_state = GameState.ATTACKING
+			if event.keycode == KEY_M and event.pressed:
+				print("Changed to Moving")
+				current_state = GameState.MOVING
+			if event.keycode == KEY_E and event.pressed:
+				print("Changed to Enemy Turn")
+				char_to_act = []
+				current_state = GameState.ENEMY_TURN
 
 func build_astar(tilemap: TileMapLayer) -> void:
 	astar.clear()
@@ -168,6 +191,26 @@ func get_unit_cells():
 		var cell = Tilemap.local_to_map(Tilemap.to_local(global))
 		cells.append(cell)
 	return cells
+	
+func get_friendly_units():
+	var units = get_tree().get_nodes_in_group("units")
+	var friendly = []
+	for u in units:
+		# Skip the current character unit
+		if u.army == 0:
+			friendly.append(u)
+	return friendly
+	
+	
+func get_enemy_units():
+	var units = get_tree().get_nodes_in_group("units")
+	var enemy = []
+	for u in units:
+		# Skip the current character unit
+		if u.army != 0:
+			enemy.append(u)
+	return enemy
+	
 	
 	
 	
