@@ -1,18 +1,21 @@
 [gd_scene format=3 uid="uid://dslnfmjmda8oo"]
 
-[ext_resource type="Texture2D" uid="uid://tiifkekii5g5" path="res://Black_Screen.png" id="1_essol"]
+[ext_resource type="Texture2D" uid="uid://bb2t4j44kc3vg" path="res://Assets/Colors/Black_Screen.png" id="1_essol"]
 [ext_resource type="Script" uid="uid://0x6uj2l3ymsr" path="res://UI/items_menu.gd" id="1_ml1bp"]
-[ext_resource type="Texture2D" uid="uid://camyhndglyvem" path="res://dommy_mommy.png" id="1_ts408"]
-[ext_resource type="Texture2D" uid="uid://bqjegqoeq5wig" path="res://GREEN GREEN GREEN.png" id="2_2sgci"]
-[ext_resource type="Texture2D" uid="uid://yhuct7n1qbe" path="res://Dark Blue.png" id="2_k6fbx"]
-[ext_resource type="Texture2D" uid="uid://baeakikk4jgs5" path="res://Dark Red.png" id="4_lvga2"]
+[ext_resource type="Texture2D" uid="uid://bwb4qjsksyxr5" path="res://Assets/Colors/GREEN GREEN GREEN.png" id="2_2sgci"]
+[ext_resource type="Texture2D" uid="uid://hx3r4he0a6lu" path="res://Assets/Colors/Dark Blue.png" id="2_k6fbx"]
+[ext_resource type="Texture2D" uid="uid://xpxh6x1t8ta4" path="res://Assets/Colors/Dark Red.png" id="4_lvga2"]
+[ext_resource type="Texture2D" uid="uid://bqaootkcaijwh" path="res://Assets/Characters/dommy_mommy.png" id="6_ml1bp"]
 
 [node name="ItemsMenu" type="Control" unique_id=1210252718]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -800.0
+offset_top = -300.0
+offset_right = -800.0
+offset_bottom = -300.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ml1bp")
@@ -60,7 +63,7 @@ offset_bottom = 266.0
 [node name="DommyMommy" type="Sprite2D" parent="CharacterPortrait" unique_id=2062562704]
 position = Vector2(93, 130)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_ts408")
+texture = ExtResource("6_ml1bp")
 
 [node name="ItemsBox" type="VBoxContainer" parent="." unique_id=101950570]
 layout_mode = 1
@@ -76,21 +79,21 @@ offset_bottom = 150.24799
 grow_horizontal = 2
 alignment = 1
 
-[node name="PlaceHolder1" type="Label" parent="ItemsBox" unique_id=1117161379]
+[node name="ItemSlot1" type="Label" parent="ItemsBox" unique_id=1117161379]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "placeholder:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PlaceHolder2" type="Label" parent="ItemsBox" unique_id=1820271523]
+[node name="ItemSlot2" type="Label" parent="ItemsBox" unique_id=1820271523]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "placeholder:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PlaceHolder3" type="Label" parent="ItemsBox" unique_id=1123479486]
+[node name="ItemSlot3" type="Label" parent="ItemsBox" unique_id=1123479486]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "placeholder:"
@@ -139,7 +142,7 @@ offset_bottom = 68.96799
 theme_override_font_sizes/font_size = 36
 text = "Strength:"
 
-[node name="Label" type="Label" parent="Level3" unique_id=1798280226]
+[node name="StrengthNum" type="Label" parent="Level3" unique_id=1798280226]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0370001
@@ -167,7 +170,7 @@ offset_bottom = 143.96799
 theme_override_font_sizes/font_size = 36
 text = "Constitution:"
 
-[node name="Label" type="Label" parent="Level5" unique_id=1015041572]
+[node name="ConstitutionNum" type="Label" parent="Level5" unique_id=1015041572]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0370001
@@ -195,7 +198,7 @@ offset_bottom = 68.96799
 theme_override_font_sizes/font_size = 36
 text = "Dexterity:"
 
-[node name="Label" type="Label" parent="Level4" unique_id=891148182]
+[node name="DexterityNum" type="Label" parent="Level4" unique_id=891148182]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0370001
@@ -223,7 +226,7 @@ offset_bottom = 143.96799
 theme_override_font_sizes/font_size = 36
 text = "Agility:"
 
-[node name="Label" type="Label" parent="Level6" unique_id=337944348]
+[node name="AgilityNum" type="Label" parent="Level6" unique_id=337944348]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0370001
@@ -251,7 +254,7 @@ offset_bottom = 218.96799
 theme_override_font_sizes/font_size = 36
 text = "Magic:"
 
-[node name="Label" type="Label" parent="Level7" unique_id=483993975]
+[node name="MagicNum" type="Label" parent="Level7" unique_id=483993975]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0370001
@@ -294,7 +297,7 @@ offset_bottom = 74.84796
 theme_override_font_sizes/font_size = 48
 text = "HP:"
 
-[node name="HPNum" type="Label" parent="HP" unique_id=953140741]
+[node name="CurrentHP" type="Label" parent="HP" unique_id=953140741]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.694
@@ -306,7 +309,35 @@ offset_top = 0.0069999695
 offset_right = 271.004
 offset_bottom = 45.007
 theme_override_font_sizes/font_size = 32
-text = "Num/Num"
+text = "Num"
+
+[node name="CurrentHP2" type="Label" parent="HP" unique_id=47683984]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.694
+anchor_top = 0.179
+anchor_right = 0.694
+anchor_bottom = 0.179
+offset_left = 89.004
+offset_top = 0.0069999695
+offset_right = 360.004
+offset_bottom = 45.007
+theme_override_font_sizes/font_size = 32
+text = "Num"
+
+[node name="Seperator" type="Label" parent="HP" unique_id=623790393]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.694
+anchor_top = 0.179
+anchor_right = 0.694
+anchor_bottom = 0.179
+offset_left = 77.004
+offset_top = 0.0069999695
+offset_right = 348.004
+offset_bottom = 45.007
+theme_override_font_sizes/font_size = 32
+text = "/"
 
 [node name="Button" type="Button" parent="." unique_id=693292022]
 layout_mode = 0

@@ -34,3 +34,7 @@ func _unhandled_input(_event:InputEvent) -> void:
 			global_position -= _event.relative / zoom_level
 		else:
 			panning = false
+	#$PlayerMenu.size = Vector2(1152,648)
+	#$PlayerMenu.position = Vector2(576,324)
+	#$PlayerMenu.visible = true
+	

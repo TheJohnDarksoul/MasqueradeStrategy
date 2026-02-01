@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://camyhndglyvem"
-path="res://.godot/imported/dommy_mommy.png-0a383890e7a686c28765b79e4659b0c6.ctex"
+uid="uid://xpxh6x1t8ta4"
+path="res://.godot/imported/Dark Red.png-ca3f8b618aeb88dd7118b7b8a08985e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dommy_mommy.png"
-dest_files=["res://.godot/imported/dommy_mommy.png-0a383890e7a686c28765b79e4659b0c6.ctex"]
+source_file="res://Assets/Colors/Dark Red.png"
+dest_files=["res://.godot/imported/Dark Red.png-ca3f8b618aeb88dd7118b7b8a08985e2.ctex"]
 
 [params]
 

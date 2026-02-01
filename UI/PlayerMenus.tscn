@@ -3,37 +3,28 @@
 [ext_resource type="Script" uid="uid://ca4gk6525asj6" path="res://UI/player_menus.gd" id="1_7v0pk"]
 [ext_resource type="PackedScene" uid="uid://dslnfmjmda8oo" path="res://UI/ItemsMenu.tscn" id="2_8d5ap"]
 
-[node name="DropdownMenu" type="Control" unique_id=584369214]
+[node name="PlayerMenu" type="Control" unique_id=584369214]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 576.0
+offset_top = 324.0
+offset_right = 576.0
+offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7v0pk")
 
-[node name="OptionButton" type="OptionButton" parent="." unique_id=1023694912]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.79200006
-anchor_bottom = 0.79200006
-offset_left = -380.0
-offset_top = 40.783936
-offset_right = -228.0
-offset_bottom = 71.783936
-allow_reselect = true
-item_count = 2
-popup/item_0/text = "Inevntory/Stats"
-popup/item_0/id = 0
-popup/item_1/text = "Wait"
-popup/item_1/id = 3
-
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1575665328]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 575.0
-offset_right = 148.0
-offset_bottom = 641.0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -66.0
+offset_right = 128.0
+grow_vertical = 0
+scale = Vector2(0.7562923, 0.7562923)
 
 [node name="Button" type="Button" parent="VBoxContainer" unique_id=1964193416]
 layout_mode = 2
@@ -46,6 +37,62 @@ text = "Wait
 
 [node name="ItemsMenu" parent="." unique_id=1210252718 instance=ExtResource("2_8d5ap")]
 layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -462.0
+offset_top = -474.0
+offset_right = -462.0
+offset_bottom = -474.0
+scale = Vector2(0.7562923, 0.7562923)
+
+[node name="Items" parent="ItemsMenu" index="4" unique_id=1248665589]
+offset_left = 550.0
+offset_top = 20.0
+offset_right = 943.0
+offset_bottom = 87.0
+
+[node name="ItemsBox" parent="ItemsMenu" index="6" unique_id=101950570]
+offset_left = 650.0
+offset_top = 75.0
+offset_right = 829.0
+offset_bottom = 263.0
+
+[node name="Level" parent="ItemsMenu" index="7" unique_id=984509172]
+offset_top = 425.0
+offset_bottom = 492.0
+
+[node name="Level3" parent="ItemsMenu" index="8" unique_id=1220296385]
+offset_top = 425.0
+offset_bottom = 492.0
+
+[node name="Level5" parent="ItemsMenu" index="9" unique_id=1799978367]
+offset_top = 500.0
+offset_bottom = 567.0
+
+[node name="Level4" parent="ItemsMenu" index="10" unique_id=1592390857]
+offset_top = 425.0
+offset_bottom = 492.0
+
+[node name="Level6" parent="ItemsMenu" index="11" unique_id=1531554982]
+offset_top = 500.0
+offset_bottom = 567.0
+
+[node name="Level7" parent="ItemsMenu" index="12" unique_id=34770572]
+offset_top = 575.0
+offset_bottom = 642.0
+
+[node name="Stats" parent="ItemsMenu" index="13" unique_id=445320535]
+offset_left = 508.0
+offset_top = 330.0
+offset_right = 642.0
+offset_bottom = 397.0
+
+[node name="HP" parent="ItemsMenu" index="14" unique_id=1595463783]
+offset_top = 575.0
+offset_bottom = 642.0
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 

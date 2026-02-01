@@ -3,6 +3,7 @@ extends Node2D
 @onready var Tilemap: TileMapLayer = $TileMapLayer
 @onready var highlight_map: TileMapLayer = $HighlightMap
 @onready var char
+@onready var player_dropdown = $Camera2D/PlayerMenu
 
 var astar := AStar2D.new()
 var movement := 3
@@ -74,6 +75,7 @@ func _input(event):
 						char = u[0]
 						rebuild_pathfinding(Tilemap)
 						mvt_setup = true
+						player_dropdown.visible = !player_dropdown.visible
 						current_state = GameState.MOVING
 						
 

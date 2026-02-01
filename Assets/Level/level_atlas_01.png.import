@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yhuct7n1qbe"
-path="res://.godot/imported/Dark Blue.png-50233414fc1e5af9fb6a15a14c0a322f.ctex"
+uid="uid://bfg0jubj6rrge"
+path="res://.godot/imported/level_atlas_01.png-c27aa662653df91bd74f958be18aff92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Dark Blue.png"
-dest_files=["res://.godot/imported/Dark Blue.png-50233414fc1e5af9fb6a15a14c0a322f.ctex"]
+source_file="res://Assets/Level/level_atlas_01.png"
+dest_files=["res://.godot/imported/level_atlas_01.png-c27aa662653df91bd74f958be18aff92.ctex"]
 
 [params]
 

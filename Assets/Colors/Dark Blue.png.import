@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tiifkekii5g5"
-path="res://.godot/imported/Black_Screen.png-61de06d052a486d1406535f653b343c3.ctex"
+uid="uid://hx3r4he0a6lu"
+path="res://.godot/imported/Dark Blue.png-4eb3a38f6e55b649dfd6efe0ae4b3a6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Black_Screen.png"
-dest_files=["res://.godot/imported/Black_Screen.png-61de06d052a486d1406535f653b343c3.ctex"]
+source_file="res://Assets/Colors/Dark Blue.png"
+dest_files=["res://.godot/imported/Dark Blue.png-4eb3a38f6e55b649dfd6efe0ae4b3a6d.ctex"]
 
 [params]
 
