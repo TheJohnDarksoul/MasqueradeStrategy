@@ -164,6 +164,13 @@ func _input(event):
 						
 						
 	if event is InputEventKey:
+		if event.keycode == KEY_ESCAPE and event.pressed:
+			globs.current_state = globs.GameState.BEGIN_TURN
+			globs.mvt_setup = false
+			globs.eTurnSetup = false
+			globs.char_to_act = []
+			
+			get_tree().change_scene_to_file("res://UI/main_menu.tscn")
 		if globs.current_state == globs.GameState.CHOOSING:
 			pass
 			#if event.keycode == KEY_A and event.pressed:

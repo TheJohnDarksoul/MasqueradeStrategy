@@ -37,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://5ed6na64bhmj" path="res://Assets/Characters/Portraits/cropped_portrait_04.png" id="23_b1r8e"]
 [ext_resource type="Texture2D" uid="uid://c4i0oxlfgadau" path="res://Assets/Characters/Portraits/Untitled565_20260131220525.png" id="28_ktckp"]
 [ext_resource type="Texture2D" uid="uid://ddpnp8ce27fev" path="res://Assets/Characters/Portraits/Untitled574_20260131232607.png" id="29_7iger"]
+[ext_resource type="AudioStream" uid="uid://d0kb1dvrntu5v" path="res://Audio/Music/ErieGameJam.mp3" id="38_7iger"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tj5wv"]
 
@@ -138,6 +139,8 @@ material = SubResource("CanvasItemMaterial_17mqb")
 
 [node name="CharacterPortrait" parent="Camera2D2/PlayerMenu/ItemsMenu" parent_id_path=PackedInt32Array(79129806, 584369214, 1210252718) index="2" unique_id=1808407109]
 material = SubResource("CanvasItemMaterial_17mqb")
+scale = Vector2(2, 2)
+pivot_offset_ratio = Vector2(0.35, 0.5)
 
 [node name="DommyMommy" parent="Camera2D2/PlayerMenu/ItemsMenu/CharacterPortrait" index="0" unique_id=2062562704]
 material = SubResource("CanvasItemMaterial_17mqb")
@@ -317,7 +320,7 @@ unitClass = ExtResource("9_yyp3s")
 charPortrait = ExtResource("10_g4pvc")
 
 [node name="Unit4" parent="." unique_id=55187230 instance=ExtResource("4_ienac")]
-position = Vector2(1550, 37)
+position = Vector2(1550, 107)
 scale = Vector2(0.039, 0.039)
 texture = ExtResource("15_i8dsc")
 UnitName = "Robert"
@@ -656,6 +659,10 @@ modulate = Color(0.047557652, 0.047557652, 0.04755763, 1)
 self_modulate = Color(0.24405202, 0.24405205, 0.24405202, 1)
 position = Vector2(1507, 26)
 color = Color(0.023529412, 0.046662368, 0.12834418, 0.9529412)
+
+[node name="BattleTheme" type="AudioStreamPlayer" parent="." unique_id=532629461]
+stream = ExtResource("38_7iger")
+autoplay = true
 
 [connection signal="pressed" from="Camera2D2/PlayerMenu/VBoxContainer/Attack" to="." method="_on_attack_button_pressed"]
 [connection signal="pressed" from="Camera2D2/EnemyStatOverlay/Attack" to="." method="_on_attack_pressed"]
