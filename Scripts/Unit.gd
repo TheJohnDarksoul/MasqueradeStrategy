@@ -55,15 +55,36 @@ func _physics_process(delta: float) -> void:
 	pass
 
 #This function assumes that the first item is a weapon
-func calcDamage():
+func calcDamage(enemy:Unit):
 	var dmg
-	#var def
+	var def
+	
 	if inventory[0].weaponType == globs.weaponTypes.TOME:
 		dmg = Mag
+		def = enemy.Agi
 	else:
 		dmg = Str
+		def = enemy.Con
 	dmg += inventory[0].damage
+	dmg -= def
+	
+	if dmg < 0:
+		dmg = 0
+
 	return dmg
+
+func calcHitrate(enemy:Unit):
+	var hit = inventory[0].accuracy
+	
+	#Make dexterity a factor in hitrate
+	hit += Dex * 1.5
+	
+	hit -= enemy.Agi
+	
+	if hit < 0:
+		hit = 0
+	
+	return hit
 
 func takeDamage(dmg:int):
 	currentHp -= dmg
