@@ -1,11 +1,6 @@
 [gd_scene format=3 uid="uid://dmwaxq3se2m8w"]
 
 [ext_resource type="Script" uid="uid://cbbfw52nng6i8" path="res://Scripts/Unit.gd" id="1_qk68r"]
-[ext_resource type="Texture2D" uid="uid://bqaootkcaijwh" path="res://Assets/Characters/dommy_mommy.png" id="2_lymsv"]
 
-[node name="Unit" type="Node2D" unique_id=1350438727]
+[node name="Unit" type="Sprite2D" unique_id=55187230]
 script = ExtResource("1_qk68r")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1824624365]
-scale = Vector2(0.036, 0.036)
-texture = ExtResource("2_lymsv")
