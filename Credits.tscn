@@ -1,0 +1,236 @@
+[gd_scene format=3 uid="uid://b6bar1ig44t4p"]
+
+[ext_resource type="Script" uid="uid://cmjomauri74nb" path="res://Scripts/credits.gd" id="1_hh5ev"]
+[ext_resource type="Texture2D" uid="uid://cvjk3sw8vrfgv" path="res://Assets/Characters/Portraits/cropped_portrait_05.png" id="2_2c6vg"]
+[ext_resource type="Texture2D" uid="uid://dtde7o47dss4y" path="res://Assets/Characters/Portraits/cropped_portrait_03.png" id="3_rseqk"]
+[ext_resource type="Texture2D" uid="uid://b4pjqeiwohfbh" path="res://Assets/Characters/Portraits/cropped_portrait_01.png" id="4_qfis2"]
+[ext_resource type="Texture2D" uid="uid://d4ikcnmonbpvw" path="res://Assets/Characters/Portraits/cropped_portrait_02.png" id="5_qc5ce"]
+[ext_resource type="Texture2D" uid="uid://5ed6na64bhmj" path="res://Assets/Characters/Portraits/cropped_portrait_04.png" id="6_nj660"]
+[ext_resource type="Texture2D" uid="uid://b32k76m2nl8xg" path="res://Assets/Characters/Portraits/cropped_portrait_00.png" id="7_5ijub"]
+[ext_resource type="FontFile" uid="uid://ct8i7ikws3ik8" path="res://Resources/Fonts/NewRocker-Regular.ttf" id="8_2la8i"]
+[ext_resource type="Texture2D" uid="uid://dv055ssoh0mmk" path="res://Assets/UI/the_only_button.png" id="9_jcia2"]
+
+[node name="Credits" type="Control" unique_id=183593346]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hh5ev")
+
+[node name="Gage" type="TextureRect" parent="." unique_id=1512614158]
+layout_mode = 0
+offset_left = 438.0
+offset_top = -18.0
+offset_right = 606.0
+offset_bottom = 242.0
+scale = Vector2(0.61, 0.61)
+size_flags_stretch_ratio = 16.05
+texture = ExtResource("2_2c6vg")
+
+[node name="Michael" type="TextureRect" parent="." unique_id=1058231744]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.22700001
+anchor_bottom = 0.22700001
+offset_left = 460.0
+offset_top = -0.0960083
+offset_right = 628.0
+offset_bottom = 259.904
+scale = Vector2(0.61, 0.61)
+texture = ExtResource("3_rseqk")
+
+[node name="Chris" type="TextureRect" parent="." unique_id=1926672325]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 474.99997
+offset_top = 8.0
+offset_right = 643.0
+offset_bottom = 268.0
+grow_vertical = 2
+scale = Vector2(0.61, 0.61)
+texture = ExtResource("4_qfis2")
+
+[node name="Kyle" type="TextureRect" parent="." unique_id=1109125066]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.75200003
+anchor_bottom = 0.75200003
+offset_left = 442.0
+offset_top = -4.2960205
+offset_right = 610.0
+offset_bottom = 255.70398
+scale = Vector2(0.61, 0.61)
+texture = ExtResource("5_qc5ce")
+
+[node name="Avery" type="TextureRect" parent="." unique_id=709981045]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.75200003
+anchor_bottom = 0.75200003
+offset_left = 997.99994
+offset_top = -471.29602
+offset_right = 1166.0
+offset_bottom = -211.29599
+scale = Vector2(0.61, 0.61)
+texture = ExtResource("6_nj660")
+
+[node name="Makayla" type="TextureRect" parent="." unique_id=2142942253]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.75200003
+anchor_bottom = 0.75200003
+offset_left = 918.99994
+offset_top = -263.29602
+offset_right = 1087.0
+offset_bottom = -3.2959595
+scale = Vector2(0.61, 0.61)
+texture = ExtResource("7_5ijub")
+
+[node name="JobsLeft" type="VBoxContainer" parent="." unique_id=142688523]
+layout_mode = 0
+offset_right = 534.0
+offset_bottom = 524.0
+theme_override_constants/separation = 120
+alignment = 1
+
+[node name="GageJob" type="Label" parent="JobsLeft" unique_id=366464586]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94305503, 0.7312169, 0.5564139, 1)
+theme_override_fonts/font = ExtResource("8_2la8i")
+theme_override_font_sizes/font_size = 32
+text = "UI Programmer(Occultist):"
+
+[node name="MichaelJob" type="Label" parent="JobsLeft" unique_id=811995744]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94305503, 0.7312169, 0.5564139, 1)
+theme_override_fonts/font = ExtResource("8_2la8i")
+theme_override_font_sizes/font_size = 32
+text = "Level Art & UI Assets(Pugilist):"
+
+[node name="ChrisJob" type="Label" parent="JobsLeft" unique_id=1043106804]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94305503, 0.7312169, 0.5564139, 1)
+theme_override_fonts/font = ExtResource("8_2la8i")
+theme_override_font_sizes/font_size = 32
+text = "Main Game Loop & Pathfinding(Actor):"
+
+[node name="KyleJob" type="Label" parent="JobsLeft" unique_id=1343956820]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94305503, 0.7312169, 0.5564139, 1)
+theme_override_fonts/font = ExtResource("8_2la8i")
+theme_override_font_sizes/font_size = 32
+text = "Player/Item Programming & 
+Project Management(Detective):"
+
+[node name="NamesLeft" type="VBoxContainer" parent="." unique_id=866157116]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 39.0
+offset_right = 261.0
+offset_bottom = 125.0
+theme_override_constants/separation = 139
+
+[node name="Gage" type="Label" parent="NamesLeft" unique_id=602474672]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_2la8i")
+theme_override_font_sizes/font_size = 32
+text = "Gage Koudelka"
+
+[node name="Michael" type="Label" parent="NamesLeft" unique_id=1930718738]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_2la8i")
+theme_override_font_sizes/font_size = 32
+text = "Michael Rumpff"
+
+[node name="Chris" type="Label" parent="NamesLeft" unique_id=147755464]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_2la8i")
+theme_override_font_sizes/font_size = 32
+text = "Robert Gillman"
+
+[node name="Kyle" type="Label" parent="NamesLeft" unique_id=418363755]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_2la8i")
+theme_override_font_sizes/font_size = 32
+text = "Kyle Morath"
+
+[node name="JobsRight" type="VBoxContainer" parent="." unique_id=346967367]
+layout_mode = 0
+offset_left = 598.0
+offset_right = 1132.0
+offset_bottom = 202.0
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="AveryJob" type="Label" parent="JobsRight" unique_id=430134816]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94305503, 0.7312169, 0.5564139, 1)
+theme_override_fonts/font = ExtResource("8_2la8i")
+theme_override_font_sizes/font_size = 32
+text = "Sound Design & Music(Archaeologist):"
+
+[node name="MakaylaJob" type="Label" parent="JobsRight" unique_id=1780276845]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94305503, 0.7312169, 0.5564139, 1)
+theme_override_fonts/font = ExtResource("8_2la8i")
+theme_override_font_sizes/font_size = 32
+text = "Character Artist/Design(Priest):"
+
+[node name="NickJob" type="Label" parent="JobsRight" unique_id=566200142]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94305503, 0.7312169, 0.5564139, 1)
+theme_override_fonts/font = ExtResource("8_2la8i")
+theme_override_font_sizes/font_size = 32
+text = "UI Programmer(Veteran):"
+
+[node name="NamesRight" type="VBoxContainer" parent="." unique_id=1429917029]
+layout_mode = 0
+offset_left = 634.0
+offset_top = 41.0
+offset_right = 1168.0
+offset_bottom = 243.0
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="Avery" type="Label" parent="NamesRight" unique_id=1550236336]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_2la8i")
+theme_override_font_sizes/font_size = 32
+text = "Avery Beaumont"
+
+[node name="Makayla" type="Label" parent="NamesRight" unique_id=602595653]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_2la8i")
+theme_override_font_sizes/font_size = 32
+text = "Makayla Woolard"
+
+[node name="Nick" type="Label" parent="NamesRight" unique_id=1917348521]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_2la8i")
+theme_override_font_sizes/font_size = 32
+text = "Nick Weller"
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=991282347]
+layout_mode = 0
+offset_left = 595.0
+offset_top = 500.0
+offset_right = 1107.0
+offset_bottom = 628.0
+texture_normal = ExtResource("9_jcia2")
+
+[node name="Label" type="Label" parent="TextureButton" unique_id=94491443]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 34.0
+offset_right = 389.0
+offset_bottom = 95.0
+theme_override_fonts/font = ExtResource("8_2la8i")
+theme_override_font_sizes/font_size = 49
+text = "RETURN"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

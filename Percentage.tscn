@@ -1,0 +1,241 @@
+[gd_scene format=3 uid="uid://cwayoheerx8qw"]
+
+[ext_resource type="Script" uid="uid://c0ywm0fjh5fsw" path="res://Scripts/percentage.gd" id="1_g3h56"]
+[ext_resource type="Texture2D" uid="uid://i5q2rtlgf6qg" path="res://Assets/UI/enemy_stats.png" id="2_c7p56"]
+[ext_resource type="Texture2D" uid="uid://dv055ssoh0mmk" path="res://Assets/UI/the_only_button.png" id="3_tfuuw"]
+[ext_resource type="FontFile" uid="uid://ct8i7ikws3ik8" path="res://Resources/Fonts/NewRocker-Regular.ttf" id="3_tvwo6"]
+
+[node name="EnemyStatOverlay" type="Control" unique_id=531348138]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g3h56")
+
+[node name="Percentage" type="RichTextLabel" parent="." unique_id=894015926]
+layout_mode = 0
+offset_right = 33.0
+offset_bottom = 23.0
+bbcode_enabled = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=561146901]
+layout_mode = 0
+offset_top = 158.0
+offset_right = 262.0
+offset_bottom = 470.0
+texture = ExtResource("2_c7p56")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="TextureRect" unique_id=1905738318]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 10.000015
+offset_right = 195.9231
+offset_bottom = 65.38464
+scale = Vector2(1.3, 1.3)
+
+[node name="Health" type="Label" parent="TextureRect/HBoxContainer" unique_id=1713439350]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("3_tvwo6")
+theme_override_font_sizes/font_size = 18
+text = "Health:"
+horizontal_alignment = 1
+
+[node name="HealthStat" type="RichTextLabel" parent="TextureRect/HBoxContainer" unique_id=2074294312]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/outline_size = 3
+theme_override_fonts/normal_font = ExtResource("3_tvwo6")
+theme_override_font_sizes/normal_font_size = 18
+text = "Temp/Temp"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="GridContainer" type="VBoxContainer" parent="TextureRect" unique_id=4423065]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 78.0
+offset_right = 121.0
+offset_bottom = 217.07697
+scale = Vector2(1.3, 1.3)
+
+[node name="Stren" type="Label" parent="TextureRect/GridContainer" unique_id=188763174]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("3_tvwo6")
+theme_override_font_sizes/font_size = 18
+text = "Strength: "
+horizontal_alignment = 1
+
+[node name="Dex" type="Label" parent="TextureRect/GridContainer" unique_id=2108472397]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("3_tvwo6")
+theme_override_font_sizes/font_size = 18
+text = "Dexterity:"
+horizontal_alignment = 1
+
+[node name="Con" type="Label" parent="TextureRect/GridContainer" unique_id=1489468215]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("3_tvwo6")
+theme_override_font_sizes/font_size = 18
+text = "Constitution:"
+horizontal_alignment = 1
+
+[node name="Ag" type="Label" parent="TextureRect/GridContainer" unique_id=594841624]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("3_tvwo6")
+theme_override_font_sizes/font_size = 18
+text = "Agility:"
+horizontal_alignment = 1
+
+[node name="Mag" type="Label" parent="TextureRect/GridContainer" unique_id=1085185837]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("3_tvwo6")
+theme_override_font_sizes/font_size = 18
+text = "Magic:"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect" unique_id=199452319]
+layout_mode = 0
+offset_left = 154.00003
+offset_top = 78.0
+offset_right = 228.0
+offset_bottom = 218.00006
+scale = Vector2(1.3, 1.3)
+
+[node name="Strength" type="RichTextLabel" parent="TextureRect/VBoxContainer" unique_id=911476981]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 3
+theme_override_fonts/normal_font = ExtResource("3_tvwo6")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "temp"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Dexterity" type="RichTextLabel" parent="TextureRect/VBoxContainer" unique_id=721376836]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 3
+theme_override_fonts/normal_font = ExtResource("3_tvwo6")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "temp"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Constitution" type="RichTextLabel" parent="TextureRect/VBoxContainer" unique_id=612093994]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 3
+theme_override_fonts/normal_font = ExtResource("3_tvwo6")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "temp"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Agility" type="RichTextLabel" parent="TextureRect/VBoxContainer" unique_id=1190148058]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 3
+theme_override_fonts/normal_font = ExtResource("3_tvwo6")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "temp"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Magic" type="RichTextLabel" parent="TextureRect/VBoxContainer" unique_id=1246065596]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 3
+theme_override_fonts/normal_font = ExtResource("3_tvwo6")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "temp"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Attack" type="Button" parent="." unique_id=2093378561]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 408.0
+offset_right = 553.0
+offset_bottom = 544.0
+scale = Vector2(0.37, 0.37)
+icon = ExtResource("3_tfuuw")
+flat = true
+
+[node name="Label" type="Label" parent="Attack" unique_id=1570687151]
+layout_mode = 0
+offset_left = 72.97297
+offset_top = 27.027027
+offset_right = 472.97296
+offset_bottom = 122.02702
+theme_override_fonts/font = ExtResource("3_tvwo6")
+theme_override_font_sizes/font_size = 78
+text = "ATTACK!"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Attack" to="." method="_on_attack_pressed"]
