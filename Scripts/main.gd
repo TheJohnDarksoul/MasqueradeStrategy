@@ -124,9 +124,6 @@ func _input(event):
 						
 			elif globs.current_state == globs.GameState.ATTACKING:
 				
-				
-				
-				
 				var click_pos := get_global_mouse_position()
 				var target_cell := Tilemap.local_to_map(Tilemap.to_local(click_pos))
 				
@@ -139,12 +136,25 @@ func _input(event):
 				var all = get_unit_and_location()
 				var got_enemy = false
 				var enemy
+				var eInRange = false
+				var reachable = get_reachable_cells(start_cell, char.inventory[0].weaponRange)
+				
 				for u in all:
 					if target_cell == u[1] and u[0].army != 0:
 						enemy = u[0]
 						globs.selectedEnemy = u[0]
 						print("Got enemy")
 						got_enemy = true
+					if u[1] in reachable and u[0].army != 0:
+						eInRange = true
+						
+				if eInRange == false:
+					globs.mvt_setup = true
+					rebuild_pathfinding(Tilemap)
+					highlight_map.clear()
+					$Camera2D2/PlayerMenu.visible = !$Camera2D2/PlayerMenu.visible
+					globs.current_state = globs.GameState.CHOOSING
+					
 				
 				if got_enemy == false:
 					print("Did not get enemy")
