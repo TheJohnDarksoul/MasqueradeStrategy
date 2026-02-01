@@ -27,6 +27,7 @@ var currentHp:int
 
 @export_category("Unit Data")
 ##An array of Items in the unit's inventory
+@export var level:int = 1
 @export var inventory:Array[Item]
 
 ##Holds shared class attributes
@@ -35,9 +36,8 @@ var currentHp:int
 ##Holds unit portrait, not map sprite
 @export var charPortrait:CompressedTexture2D
 
-#Don't know how to make a static const. Don't touch this at runtime
-static var modifierTable:Array[int] = [-5, -5, -4, -4, -3, -3, -2, -2,
--1, -1, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5]
+var animPos:Vector2
+var targetPos:Vector2
 
 func _ready() -> void:
 	add_to_group("units")
@@ -54,13 +54,46 @@ func _physics_process(delta: float) -> void:
 	pass
 
 #This function assumes that the first item is a weapon
-func calcDamage():
-	var dmg = Str
+func calcDamage(enemy:Unit):
+	var dmg
+	var def
+	
+	if inventory[0].weaponType == globs.weaponTypes.TOME:
+		dmg = Mag
+		def = enemy.Agi
+	else:
+		dmg = Str
+		def = enemy.Con
 	dmg += inventory[0].damage
+	dmg -= def
+	
+	if dmg < 0:
+		dmg = 0
+
 	return dmg
+
+func calcHitrate(enemy:Unit):
+	var hit = inventory[0].accuracy
+	
+	#Make dexterity a factor in hitrate
+	hit += Dex * 1.5
+	
+	hit -= enemy.Agi
+	
+	if hit < 0:
+		hit = 0
+	
+	return hit
 
 func takeDamage(dmg:int):
 	currentHp -= dmg
 	
 	if currentHp <= 0:
 		queue_free()
+
+func attackAnim():
+	var tween = create_tween()
+	
+	tween.tween_property(self, "position", targetPos, 0.75)
+	
+	tween.tween_property(self, "position", animPos, 0.75)
