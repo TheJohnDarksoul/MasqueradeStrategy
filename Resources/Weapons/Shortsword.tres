@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://b721udlr7gimv"]
+
+[ext_resource type="Script" uid="uid://cuvrebbw72p8g" path="res://Scripts/Items/Weapon.gd" id="1_si620"]
+
+[resource]
+script = ExtResource("1_si620")
+damage = 4
+accuracy = 85
+weaponRange = 1
+name = "Shortsword"

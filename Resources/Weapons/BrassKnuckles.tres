@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://c3dfman2d8hi3"]
+
+[ext_resource type="Script" uid="uid://cuvrebbw72p8g" path="res://Scripts/Items/Weapon.gd" id="1_2vdcv"]
+
+[resource]
+script = ExtResource("1_2vdcv")
+damage = 5
+weaponType = 3
+accuracy = 90
+weaponRange = 1
+name = "Brass Knuckles"

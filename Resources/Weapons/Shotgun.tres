@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://n0k2ufmbogmh"]
+
+[ext_resource type="Script" uid="uid://cuvrebbw72p8g" path="res://Scripts/Items/Weapon.gd" id="1_1rxi0"]
+
+[resource]
+script = ExtResource("1_1rxi0")
+damage = 12
+weaponType = 1
+accuracy = 70
+weaponRange = 1
+name = "Shotgun"
