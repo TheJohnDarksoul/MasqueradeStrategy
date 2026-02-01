@@ -41,7 +41,7 @@ func _process(delta):
 		if mvt_setup == true:
 			rebuild_pathfinding_attack(Tilemap)
 			start_cell = Tilemap.local_to_map(Tilemap.to_local(char.global_position))
-			var reachable = get_reachable_cells(start_cell, movement)
+			var reachable = get_reachable_cells(start_cell, char.inventory[0].weaponRange)
 			highlight_reachable(reachable)
 			mvt_setup = false
 			
@@ -113,8 +113,10 @@ func _input(event):
 
 				var all = get_unit_and_location()
 				var got_enemy = false
+				var enemy
 				for u in all:
 					if target_cell == u[1] and u[0].army != 0:
+						enemy = u[0]
 						print("Got enemy")
 						got_enemy = true
 				
@@ -126,12 +128,17 @@ func _input(event):
 				if path.is_empty():
 					print("Did not get path for enemy")
 					return
+					
+				var steps := path.size() - 1
+				if steps <= char.inventory[0].weaponRange:
+					print("attacked enemy")
+					# DO ATTACK STUFF HERE __________________________________________________
+					enemy.takeDamage(char.calcDamage())
+					print("Enemy took " , char.calcDamage() , " damage")
 				
-				print("attacked enemy")
-				# DO ATTACK STUFF HERE __________________________________________________
-				highlight_map.clear()
-				char_to_act.erase(char)
-				current_state = GameState.SELECTING
+					highlight_map.clear()
+					char_to_act.erase(char)
+					current_state = GameState.SELECTING
 						
 						
 						
