@@ -1,6 +1,27 @@
 [gd_scene format=3 uid="uid://x4s4wotu2c1t"]
 
 [ext_resource type="Script" uid="uid://dio7ggddsmwf7" path="res://UI/options_menu.gd" id="1_7aenu"]
+[ext_resource type="AudioStream" uid="uid://d4r483tbpcs" path="res://Audio/Music/DerealizationFull.mp3" id="2_cslhf"]
+[ext_resource type="FontFile" uid="uid://ct8i7ikws3ik8" path="res://Resources/Fonts/NewRocker-Regular.ttf" id="2_nkesb"]
+[ext_resource type="Texture2D" uid="uid://dv055ssoh0mmk" path="res://Assets/UI/the_only_button.png" id="3_cslhf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pkbii"]
+texture = ExtResource("3_cslhf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8hkoq"]
+texture = ExtResource("3_cslhf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m0po5"]
+texture = ExtResource("3_cslhf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7txfi"]
+texture = ExtResource("3_cslhf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2ce1e"]
+texture = ExtResource("3_cslhf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_42xgv"]
+texture = ExtResource("3_cslhf")
 
 [node name="OptionsMenu" type="Control" unique_id=1149783176]
 layout_mode = 3
@@ -26,8 +47,11 @@ grow_horizontal = 2
 grow_vertical = 2
 max_value = 1.5
 step = 0.001
+value = 1.5
 
 [node name="Music Player" type="AudioStreamPlayer" parent="." unique_id=1723597447]
+stream = ExtResource("2_cslhf")
+autoplay = true
 
 [node name="Button" type="Button" parent="." unique_id=182707669]
 layout_mode = 1
@@ -42,7 +66,11 @@ offset_right = 134.0
 offset_bottom = -51.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 28
+theme_override_fonts/font = ExtResource("2_nkesb")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_pkbii")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8hkoq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_m0po5")
 text = "Back to Main Menu"
 
 [node name="Label" type="Label" parent="Button" unique_id=118445987]
@@ -58,8 +86,30 @@ offset_right = 121.5
 offset_bottom = 24.99701
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 36
+theme_override_fonts/font = ExtResource("2_nkesb")
+theme_override_font_sizes/font_size = 48
 text = "Music Volume"
+
+[node name="ToggleFullscreen" type="Button" parent="." unique_id=822498487]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.0
+offset_top = 178.0
+offset_right = 133.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_nkesb")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_7txfi")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2ce1e")
+theme_override_styles/hover = SubResource("StyleBoxTexture_42xgv")
+text = "Toggle Fullscreen"
 
 [connection signal="value_changed" from="Music Slider" to="." method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ToggleFullscreen" to="." method="_on_toggle_fullscreen_pressed"]
