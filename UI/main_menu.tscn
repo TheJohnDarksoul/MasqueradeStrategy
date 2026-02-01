@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://bbbrxdwxcta0e"]
 
 [ext_resource type="Script" uid="uid://b8n5uqacuorr2" path="res://UI/main_menu.gd" id="1_p8ccj"]
+[ext_resource type="Texture2D" uid="uid://tym5uvvgn6po" path="res://Assets/UI/IMG_0849.png" id="2_8ctay"]
+[ext_resource type="FontFile" uid="uid://cwnqw0nf1ngyn" path="res://Resources/Fonts/Jacquard12-Regular.ttf" id="2_f40uw"]
 [ext_resource type="Texture2D" uid="uid://dv055ssoh0mmk" path="res://Assets/UI/the_only_button.png" id="2_tk8dj"]
-[ext_resource type="AudioStream" uid="uid://4as3vw73y3yb" path="res://Audio/Music/DerealizationFull.mp3" id="3_d8nwk"]
+[ext_resource type="AudioStream" uid="uid://4as3vw73y3yb" path="res://Sound/Music/DerealizationFull.mp3" id="3_d8nwk"]
+[ext_resource type="FontFile" uid="uid://cwnqw0nf1ngyn" path="res://Resources/Fonts/Jacquard_12/Jacquard12-Regular.ttf" id="4_8ctay"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d8nwk"]
 texture = ExtResource("2_tk8dj")
@@ -20,6 +23,15 @@ texture = ExtResource("2_tk8dj")
 texture = ExtResource("2_tk8dj")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k0a0m"]
+texture = ExtResource("2_tk8dj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mmlvu"]
+texture = ExtResource("2_tk8dj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aorne"]
+texture = ExtResource("2_tk8dj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bpm4f"]
 texture = ExtResource("2_tk8dj")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2mudq"]
@@ -40,6 +52,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p8ccj")
 
+[node name="Img0849" type="Sprite2D" parent="." unique_id=1766853280]
+position = Vector2(576, 329)
+scale = Vector2(1.5127085, 1.3127098)
+texture = ExtResource("2_8ctay")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1964332505]
 layout_mode = 1
 anchors_preset = 8
@@ -47,16 +64,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -146.0
+offset_top = -290.0
+offset_right = 155.0
+offset_bottom = -34.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Start" type="Button" parent="VBoxContainer" unique_id=1828288352]
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
+theme_override_fonts/font = ExtResource("2_f40uw")
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxTexture_d8nwk")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_4cwpn")
 theme_override_styles/hover = SubResource("StyleBoxTexture_f40uw")
@@ -64,15 +82,26 @@ text = "Start Game"
 
 [node name="Options" type="Button" parent="VBoxContainer" unique_id=1252110600]
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
+theme_override_fonts/font = ExtResource("4_8ctay")
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxTexture_8ctay")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ev3b6")
 theme_override_styles/hover = SubResource("StyleBoxTexture_k0a0m")
 text = "Options"
 
+[node name="Credits" type="Button" parent="VBoxContainer" unique_id=1781881769]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_8ctay")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxTexture_mmlvu")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_aorne")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bpm4f")
+text = "Credits"
+
 [node name="QuitGame" type="Button" parent="VBoxContainer" unique_id=110627014]
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
+theme_override_fonts/font = ExtResource("4_8ctay")
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxTexture_2mudq")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_cafmx")
 theme_override_styles/hover = SubResource("StyleBoxTexture_tcix6")
@@ -84,4 +113,5 @@ autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitGame" to="." method="_on_quit_game_pressed"]

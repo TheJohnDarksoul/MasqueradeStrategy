@@ -11,3 +11,7 @@ func _on_options_pressed() -> void:
 
 func _on_start_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Level.tscn")
+
+
+func _on_credits_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/Credits.tscn")
