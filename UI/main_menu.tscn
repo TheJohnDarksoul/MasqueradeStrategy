@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b8n5uqacuorr2" path="res://UI/main_menu.gd" id="1_p8ccj"]
 [ext_resource type="Texture2D" uid="uid://dv055ssoh0mmk" path="res://Assets/UI/the_only_button.png" id="2_tk8dj"]
-[ext_resource type="AudioStream" uid="uid://d4r483tbpcs" path="res://Audio/Music/DerealizationFull.mp3" id="3_d8nwk"]
+[ext_resource type="AudioStream" uid="uid://4as3vw73y3yb" path="res://Audio/Music/DerealizationFull.mp3" id="3_d8nwk"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d8nwk"]
 texture = ExtResource("2_tk8dj")
@@ -82,5 +82,6 @@ text = "Quit"
 stream = ExtResource("3_d8nwk")
 autoplay = true
 
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitGame" to="." method="_on_quit_game_pressed"]

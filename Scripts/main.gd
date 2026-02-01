@@ -267,7 +267,7 @@ func highlight_reachable(reachable_cells: Array[Vector2i]) -> void:
 	highlight_map.clear()  # Remove previous highlights
 
 	for cell in reachable_cells:
-		highlight_map.set_cell(cell, 1, Vector2i(0, 0))
+		highlight_map.set_cell(cell, 0, Vector2i(0, 0))
 		
 		
 func get_unit_cells():
@@ -341,9 +341,13 @@ func doEnemyTurns():
 			var charHit = charToHit.pick_random()
 			var dmg = enemy.calcDamage(charHit)
 			var check = randi_range(1, 100)
-			if enemy.calcHitrate(charHit) <= check:
+			if enemy.calcHitrate(charHit) >= check:
 				charHit.takeDamage(dmg)
 				print("Char took " , dmg , " damage")
+				
+				enemy.animPos = enemy.global_position
+				enemy.targetPos = charHit.global_position
+				await enemy.attackAnim()
 			else:
 				print("1 enemy didn't hit")
 		
@@ -355,9 +359,18 @@ func _on_attack_pressed() -> void:
 	# DO ATTACK STUFF HERE __________________________________________________
 	
 	var check = randi_range(1, 100)
-	if char.calcHitrate(globs.selectedEnemy) <= check:
+	print(char.calcHitrate(globs.selectedEnemy))
+	print(check)
+	if char.calcHitrate(globs.selectedEnemy) >= check:
 		globs.selectedEnemy.takeDamage(char.calcDamage(globs.selectedEnemy))
 		print("Enemy took " , char.calcDamage(globs.selectedEnemy) , " damage")
+		char.animPos = char.global_position
+		char.targetPos = globs.selectedEnemy.global_position
+		await char.attackAnim()
+		
+		
+		
+		
 	else:
 		print("Character Missed")
 
