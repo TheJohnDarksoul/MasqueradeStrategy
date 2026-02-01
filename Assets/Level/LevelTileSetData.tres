@@ -101,6 +101,9 @@ texture_region_size = Vector2i(40, 36)
 7:6/0 = 0
 7:6/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_dmych")
 7:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, 0, -10, -18, 10, -18, 20, 0, 10, 18, -10, 18)
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
 
 [resource]
 tile_shape = 3
