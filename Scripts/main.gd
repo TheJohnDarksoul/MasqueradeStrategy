@@ -30,12 +30,22 @@ func _ready() -> void:
 
 
 func _process(delta):
-	if current_state == GameState.MOVING or current_state == GameState.ATTACKING:
+	if current_state == GameState.MOVING:
 		if mvt_setup == true:
 			start_cell = Tilemap.local_to_map(Tilemap.to_local(char.global_position))
 			var reachable = get_reachable_cells(start_cell, movement)
 			highlight_reachable(reachable)
 			mvt_setup = false
+			
+	if current_state == GameState.ATTACKING:
+		if mvt_setup == true:
+			rebuild_pathfinding_attack(Tilemap)
+			start_cell = Tilemap.local_to_map(Tilemap.to_local(char.global_position))
+			var reachable = get_reachable_cells(start_cell, movement)
+			highlight_reachable(reachable)
+			mvt_setup = false
+			
+			
 	if current_state == GameState.BEGIN_TURN:
 		char_to_act.append_array(get_friendly_units())
 		print(char_to_act)
@@ -90,6 +100,42 @@ func _input(event):
 							mvt_setup = true
 							current_state = GameState.CHOOSING
 						
+			elif current_state == GameState.ATTACKING:
+				
+				var click_pos := get_global_mouse_position()
+				var target_cell := Tilemap.local_to_map(Tilemap.to_local(click_pos))
+				
+				if not target_cell in Tilemap.get_used_cells():
+					return
+
+				start_cell = Tilemap.local_to_map(Tilemap.to_local(char.global_position))
+				var path := find_path(Tilemap, start_cell, target_cell)
+
+				var all = get_unit_and_location()
+				var got_enemy = false
+				for u in all:
+					if target_cell == u[1] and u[0].army != 0:
+						print("Got enemy")
+						got_enemy = true
+				
+				if got_enemy == false:
+					print("Did not get enemy")
+					return
+
+				# Path must exist and be within movement range
+				if path.is_empty():
+					print("Did not get path for enemy")
+					return
+				
+				print("attacked enemy")
+				# DO ATTACK STUFF HERE __________________________________________________
+				highlight_map.clear()
+				char_to_act.erase(char)
+				current_state = GameState.SELECTING
+						
+						
+						
+						
 	if event is InputEventKey:
 		if current_state == GameState.CHOOSING:
 			if event.keycode == KEY_A and event.pressed:
@@ -101,6 +147,7 @@ func _input(event):
 			if event.keycode == KEY_E and event.pressed:
 				print("Changed to Enemy Turn")
 				char_to_act = []
+				mvt_setup == false
 				current_state = GameState.ENEMY_TURN
 
 func build_astar(tilemap: TileMapLayer) -> void:
@@ -109,6 +156,15 @@ func build_astar(tilemap: TileMapLayer) -> void:
 	for cell in tilemap.get_used_cells():
 		if cell in get_unit_cells():
 			continue
+
+		var id := cell_to_id(cell)
+		var world_pos := tilemap.map_to_local(cell)
+		astar.add_point(id, world_pos)
+		
+func build_astar2(tilemap: TileMapLayer) -> void:
+	astar.clear()
+
+	for cell in tilemap.get_used_cells():
 
 		var id := cell_to_id(cell)
 		var world_pos := tilemap.map_to_local(cell)
@@ -131,6 +187,9 @@ func rebuild_pathfinding(tilemap: TileMapLayer) -> void:
 	build_astar(tilemap)
 	connect_neighbors(tilemap)
 
+func rebuild_pathfinding_attack(tilemap: TileMapLayer) -> void:
+	build_astar2(tilemap)
+	connect_neighbors(tilemap)
 
 func find_path(tilemap: TileMapLayer, start_cell: Vector2i, end_cell: Vector2i) -> PackedVector2Array:
 	var start_id := cell_to_id(start_cell)
@@ -167,6 +226,7 @@ func get_reachable_cells(start_cell: Vector2i, max_movement: int) -> Array[Vecto
 			continue
 
 		var steps := path.size() - 1
+		# DO TILE MVT HERE
 		if steps <= max_movement:
 			reachable.append(cell)
 

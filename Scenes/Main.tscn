@@ -73,7 +73,7 @@ unitClass = ExtResource("7_jw32o")
 position = Vector2(172, 144)
 
 [node name="Unit3" parent="." unique_id=1877881053 instance=ExtResource("4_pbw6q")]
-position = Vector2(139, 91)
+position = Vector2(79, 53)
 
 [node name="Unit4" parent="." unique_id=1834697755 instance=ExtResource("4_pbw6q")]
 position = Vector2(19, 91)
