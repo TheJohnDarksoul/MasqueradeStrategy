@@ -6,8 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://dmwaxq3se2m8w" path="res://Scenes/Unit.tscn" id="4_ienac"]
 [ext_resource type="Texture2D" uid="uid://cr1k382shxiq2" path="res://Assets/Level/background_01.png" id="5_tj5wv"]
 [ext_resource type="Texture2D" uid="uid://bfxx1gldd17oe" path="res://Assets/Light/radial_02.png" id="6_tj5wv"]
+[ext_resource type="Texture2D" uid="uid://b0ftytrfyqfon" path="res://Assets/Level/object_piano_01.png" id="7_or7tv"]
+[ext_resource type="Texture2D" uid="uid://c0tvne2wnmrju" path="res://Assets/Level/object_piano_01_nrm.png" id="8_133si"]
+[ext_resource type="Texture2D" uid="uid://k7f6yjltsnqq" path="res://Assets/Level/object_piano_01_specular.png" id="9_esopp"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tj5wv"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_b10nm"]
+diffuse_texture = ExtResource("7_or7tv")
+normal_texture = ExtResource("8_133si")
+specular_texture = ExtResource("9_esopp")
+specular_shininess = 0.57
+texture_filter = 1
 
 [node name="Main" type="Node2D" unique_id=138770015]
 script = ExtResource("1_fuudy")
@@ -134,6 +144,26 @@ texture = ExtResource("6_tj5wv")
 texture_scale = 2.86
 height = 169.0
 
+[node name="PointLight7" type="PointLight2D" parent="." unique_id=1532582262]
+position = Vector2(127, 1275)
+scale = Vector2(0.39972484, 0.39972484)
+color = Color(0.81, 0.094500005, 0, 1)
+energy = 1.17
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.4392157)
+texture = ExtResource("6_tj5wv")
+texture_scale = 4.54
+height = 364.0
+
+[node name="AmbientBounce" type="PointLight2D" parent="PointLight7" unique_id=1099552973]
+scale = Vector2(1.6290902, 1.6290902)
+color = Color(1, 0.49600005, 0.16000003, 1)
+energy = 0.51
+shadow_color = Color(0, 0, 0, 0.4392157)
+texture = ExtResource("6_tj5wv")
+texture_scale = 1.55
+height = 169.0
+
 [node name="PointLight5" type="PointLight2D" parent="." unique_id=160755253]
 position = Vector2(328.00003, 122.00003)
 scale = Vector2(0.94147635, 0.94147635)
@@ -193,3 +223,8 @@ shadow_enabled = true
 shadow_color = Color(0.02745098, 0.02745098, 0.101960786, 0.9411765)
 height = 0.32
 max_distance = 9793.0
+
+[node name="PianoObject" type="Sprite2D" parent="." unique_id=2100770150]
+texture_filter = 1
+position = Vector2(180, 1239)
+texture = SubResource("CanvasTexture_b10nm")
