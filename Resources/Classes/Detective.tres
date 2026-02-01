@@ -6,4 +6,4 @@
 script = ExtResource("1_r7yts")
 name = "Detective"
 movement = 4
-weaponTypes = [1]
+weaponTypes = Array[int]([1])

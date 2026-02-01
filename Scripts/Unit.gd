@@ -52,3 +52,15 @@ func _process(delta: float) -> void:
 @warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
 	pass
+
+#This function assumes that the first item is a weapon
+func calcDamage():
+	var dmg = Str
+	dmg += inventory[0].damage
+	return dmg
+
+func takeDamage(dmg:int):
+	currentHp -= dmg
+	
+	if currentHp <= 0:
+		queue_free()
