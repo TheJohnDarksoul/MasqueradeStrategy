@@ -1,7 +1,7 @@
 # Code from https://www.reddit.com/r/godot/comments/uj71l6/pan_camera_with_mouse_and_change_speed_according/
 extends Camera2D
 
-const ZOOM_INCREMENT = 0.1
+const ZOOM_INCREMENT = 0.0
 const ZOOM_MIN = 2.0
 const ZOOM_MAX = 8.0
 

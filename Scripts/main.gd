@@ -156,6 +156,7 @@ func _input(event):
 					print("attacked enemy")
 					# DO ATTACK STUFF HERE __________________________________________________
 					enemy.takeDamage(char.calcDamage())
+					
 					print("Enemy took " , char.calcDamage() , " damage")
 				
 					highlight_map.clear()

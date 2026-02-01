@@ -12,7 +12,6 @@ extends Control
 @onready var Item1 = $ItemsMenu/ItemsBox/ItemSlot1
 @onready var Item2 = $ItemsMenu/ItemsBox/ItemSlot2
 @onready var Item3 = $ItemsMenu/ItemsBox/ItemSlot3
-@onready var Portrait = $CharacterPortrait/DommyMommy
 func _on_button_pressed() -> void:
 	Item_Menu.visible = !Item_Menu.visible
 	Cur_Hp.text = str(globs.selectedPlayer.currentHp)
@@ -26,6 +25,8 @@ func _on_button_pressed() -> void:
 	Item1.text = str(globs.selectedPlayer.inventory[0].name)
 	Item2.text = ""
 	Item3.text = ""
+	var Portrait = $ItemsMenu/CharacterPortrait/DommyMommy
+	print(Portrait)
 	Portrait.texture = globs.selectedPlayer.charPortrait
 
 	#if(globs.selectedPlayer.inventory[1].name == null || globs.selectedPlayer.inventory[2].name == null):

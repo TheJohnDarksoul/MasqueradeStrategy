@@ -2,9 +2,37 @@
 
 [ext_resource type="Script" uid="uid://dvxjhtm6xjslr" path="res://UI/player_menus.gd" id="1_7v0pk"]
 [ext_resource type="PackedScene" uid="uid://dslnfmjmda8oo" path="res://UI/ItemsMenu.tscn" id="2_8d5ap"]
+[ext_resource type="FontFile" uid="uid://cwnqw0nf1ngyn" path="res://Resources/Fonts/Jacquard12-Regular.ttf" id="2_knecd"]
+[ext_resource type="Texture2D" uid="uid://dv055ssoh0mmk" path="res://Assets/UI/the_only_button.png" id="3_bk84e"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fqrog"]
+texture = ExtResource("3_bk84e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fh27p"]
+texture = ExtResource("3_bk84e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r7ane"]
+texture = ExtResource("3_bk84e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ihvwu"]
+texture = ExtResource("3_bk84e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mfanq"]
+texture = ExtResource("3_bk84e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6s6gr"]
+texture = ExtResource("3_bk84e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aa2n4"]
+texture = ExtResource("3_bk84e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_skyk8"]
+texture = ExtResource("3_bk84e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jjfw8"]
+texture = ExtResource("3_bk84e")
 
 [node name="PlayerMenu" type="Control" unique_id=584369214]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,14 +58,29 @@ scale = Vector2(0.7562923, 0.7562923)
 
 [node name="Move" type="Button" parent="VBoxContainer" unique_id=1639301053]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_knecd")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxTexture_fqrog")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_fh27p")
+theme_override_styles/hover = SubResource("StyleBoxTexture_r7ane")
 text = "Move"
 
 [node name="Button" type="Button" parent="VBoxContainer" unique_id=1964193416]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_knecd")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxTexture_ihvwu")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mfanq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6s6gr")
 text = "Inventory/Stats"
 
 [node name="Button2" type="Button" parent="VBoxContainer" unique_id=867451171]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_knecd")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxTexture_aa2n4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_skyk8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_jjfw8")
 text = "Skip Turn
 "
 
@@ -55,49 +98,49 @@ offset_right = -1133.0
 offset_bottom = -474.0
 scale = Vector2(0.7562923, 0.7562923)
 
-[node name="Items" parent="ItemsMenu" index="4" unique_id=1248665589]
+[node name="Items" parent="ItemsMenu" index="1" unique_id=1248665589]
 offset_left = 550.0
 offset_top = 20.0
 offset_right = 943.0
 offset_bottom = 87.0
 
-[node name="ItemsBox" parent="ItemsMenu" index="6" unique_id=101950570]
+[node name="ItemsBox" parent="ItemsMenu" index="3" unique_id=101950570]
 offset_left = 650.0
 offset_top = 75.0
 offset_right = 829.0
 offset_bottom = 263.0
 
-[node name="Level" parent="ItemsMenu" index="7" unique_id=984509172]
+[node name="Level" parent="ItemsMenu" index="4" unique_id=984509172]
 offset_top = 425.0
 offset_bottom = 492.0
 
-[node name="Strength" parent="ItemsMenu" index="8" unique_id=1220296385]
+[node name="Strength" parent="ItemsMenu" index="5" unique_id=1220296385]
 offset_top = 425.0
 offset_bottom = 492.0
 
-[node name="Constitution" parent="ItemsMenu" index="9" unique_id=1799978367]
+[node name="Constitution" parent="ItemsMenu" index="6" unique_id=1799978367]
 offset_top = 500.0
 offset_bottom = 567.0
 
-[node name="Dexterity" parent="ItemsMenu" index="10" unique_id=1592390857]
+[node name="Dexterity" parent="ItemsMenu" index="7" unique_id=1592390857]
 offset_top = 425.0
 offset_bottom = 492.0
 
-[node name="Agility" parent="ItemsMenu" index="11" unique_id=1531554982]
+[node name="Agility" parent="ItemsMenu" index="8" unique_id=1531554982]
 offset_top = 500.0
 offset_bottom = 567.0
 
-[node name="Magic" parent="ItemsMenu" index="12" unique_id=34770572]
+[node name="Magic" parent="ItemsMenu" index="9" unique_id=34770572]
 offset_top = 575.0
 offset_bottom = 642.0
 
-[node name="Stats" parent="ItemsMenu" index="13" unique_id=445320535]
+[node name="Stats" parent="ItemsMenu" index="10" unique_id=445320535]
 offset_left = 508.0
 offset_top = 330.0
 offset_right = 642.0
 offset_bottom = 397.0
 
-[node name="HP" parent="ItemsMenu" index="14" unique_id=1595463783]
+[node name="HP" parent="ItemsMenu" index="11" unique_id=1595463783]
 offset_top = 575.0
 offset_bottom = 642.0
 

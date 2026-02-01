@@ -83,6 +83,7 @@ UnitName = "Mommy, sorry mommy"
 army = 0
 inventory = Array[ExtResource("7_vy5pj")]([ExtResource("8_bmxlf")])
 unitClass = ExtResource("7_jw32o")
+charPortrait = ExtResource("11_frkhe")
 
 [node name="Unit2" parent="." unique_id=1208485951 instance=ExtResource("4_pbw6q")]
 position = Vector2(50, 108)

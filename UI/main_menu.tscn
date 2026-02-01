@@ -1,6 +1,34 @@
 [gd_scene format=3 uid="uid://bbbrxdwxcta0e"]
 
 [ext_resource type="Script" uid="uid://b8n5uqacuorr2" path="res://UI/main_menu.gd" id="1_p8ccj"]
+[ext_resource type="Texture2D" uid="uid://dv055ssoh0mmk" path="res://Assets/UI/the_only_button.png" id="2_tk8dj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d8nwk"]
+texture = ExtResource("2_tk8dj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4cwpn"]
+texture = ExtResource("2_tk8dj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f40uw"]
+texture = ExtResource("2_tk8dj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8ctay"]
+texture = ExtResource("2_tk8dj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ev3b6"]
+texture = ExtResource("2_tk8dj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k0a0m"]
+texture = ExtResource("2_tk8dj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2mudq"]
+texture = ExtResource("2_tk8dj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cafmx"]
+texture = ExtResource("2_tk8dj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tcix6"]
+texture = ExtResource("2_tk8dj")
 
 [node name="Main Menu" type="Control" unique_id=1281096968]
 layout_mode = 3
@@ -27,14 +55,26 @@ grow_vertical = 2
 
 [node name="Start" type="Button" parent="VBoxContainer" unique_id=1828288352]
 layout_mode = 2
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxTexture_d8nwk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4cwpn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_f40uw")
 text = "Start Game"
 
 [node name="Options" type="Button" parent="VBoxContainer" unique_id=1252110600]
 layout_mode = 2
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxTexture_8ctay")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ev3b6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_k0a0m")
 text = "Options"
 
 [node name="QuitGame" type="Button" parent="VBoxContainer" unique_id=110627014]
 layout_mode = 2
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxTexture_2mudq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cafmx")
+theme_override_styles/hover = SubResource("StyleBoxTexture_tcix6")
 text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]

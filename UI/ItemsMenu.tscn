@@ -4,7 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://ydkj3pi2u1pq" path="res://Assets/UI/stats_background.png" id="2_k6fbx"]
 [ext_resource type="FontFile" uid="uid://ct8i7ikws3ik8" path="res://Resources/Fonts/NewRocker-Regular.ttf" id="3_2sgci"]
 [ext_resource type="FontFile" uid="uid://cwnqw0nf1ngyn" path="res://Resources/Fonts/Jacquard12-Regular.ttf" id="5_ml1bp"]
+[ext_resource type="Texture2D" uid="uid://dv055ssoh0mmk" path="res://Assets/UI/the_only_button.png" id="6_1p3xv"]
 [ext_resource type="Texture2D" uid="uid://bqaootkcaijwh" path="res://Assets/Characters/dommy_mommy.png" id="6_ml1bp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u4nej"]
+texture = ExtResource("6_1p3xv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x7gsh"]
+texture = ExtResource("6_1p3xv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bqli2"]
+texture = ExtResource("6_1p3xv")
 
 [node name="ItemsMenu" type="Control" unique_id=1210252718]
 layout_mode = 3
@@ -111,11 +121,11 @@ anchor_top = 0.179
 anchor_right = 1.0370001
 anchor_bottom = 0.179
 offset_left = 0.041992188
-offset_top = 0.0069999695
+offset_top = -14.993
 offset_right = 271.042
-offset_bottom = 45.007
+offset_bottom = 50.007
 theme_override_fonts/font = ExtResource("5_ml1bp")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 64
 text = "Num"
 
 [node name="Strength" type="Label" parent="." unique_id=1220296385]
@@ -307,12 +317,12 @@ anchor_top = 0.179
 anchor_right = 0.694
 anchor_bottom = 0.179
 offset_left = 0.0039978027
-offset_top = 0.0069999695
+offset_top = -16.993
 offset_right = 271.004
-offset_bottom = 45.007
+offset_bottom = 48.007
 theme_override_fonts/font = ExtResource("5_ml1bp")
-theme_override_font_sizes/font_size = 40
-text = "Num"
+theme_override_font_sizes/font_size = 64
+text = "0"
 
 [node name="MaxHp" type="Label" parent="HP" unique_id=47683984]
 layout_mode = 1
@@ -321,12 +331,12 @@ anchor_left = 0.694
 anchor_top = 0.179
 anchor_right = 0.694
 anchor_bottom = 0.179
-offset_left = 89.004
-offset_top = 0.0069999695
-offset_right = 360.004
-offset_bottom = 45.007
+offset_left = 69.004
+offset_top = -16.993
+offset_right = 340.004
+offset_bottom = 48.007
 theme_override_fonts/font = ExtResource("5_ml1bp")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 64
 text = "Num"
 
 [node name="Seperator" type="Label" parent="HP" unique_id=623790393]
@@ -336,12 +346,12 @@ anchor_left = 0.694
 anchor_top = 0.179
 anchor_right = 0.694
 anchor_bottom = 0.179
-offset_left = 77.004
-offset_top = 0.0069999695
-offset_right = 348.004
-offset_bottom = 45.007
+offset_left = 40.003998
+offset_top = -16.993
+offset_right = 311.004
+offset_bottom = 48.007
 theme_override_fonts/font = ExtResource("5_ml1bp")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 64
 text = "/"
 
 [node name="Button" type="Button" parent="." unique_id=693292022]
@@ -352,6 +362,9 @@ offset_right = 186.0
 offset_bottom = 366.0
 theme_override_fonts/font = ExtResource("5_ml1bp")
 theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxTexture_u4nej")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_x7gsh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bqli2")
 text = "Back"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
