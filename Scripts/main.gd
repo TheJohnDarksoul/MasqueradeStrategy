@@ -124,6 +124,9 @@ func _input(event):
 						
 			elif globs.current_state == globs.GameState.ATTACKING:
 				
+				
+				
+				
 				var click_pos := get_global_mouse_position()
 				var target_cell := Tilemap.local_to_map(Tilemap.to_local(click_pos))
 				
@@ -139,13 +142,14 @@ func _input(event):
 				for u in all:
 					if target_cell == u[1] and u[0].army != 0:
 						enemy = u[0]
+						globs.selectedEnemy = u[0]
 						print("Got enemy")
 						got_enemy = true
 				
 				if got_enemy == false:
 					print("Did not get enemy")
 					return
-
+					
 				# Path must exist and be within movement range
 				if path.is_empty():
 					print("Did not get path for enemy")
@@ -153,28 +157,18 @@ func _input(event):
 					
 				var steps := path.size() - 1
 				if steps <= char.inventory[0].weaponRange:
-					print("attacked enemy")
-					# DO ATTACK STUFF HERE __________________________________________________
-					
-					var check = randi_range(1, 100)
-					if char.calcHitrate(enemy) <= check:
-						enemy.takeDamage(char.calcDamage(enemy))
-						print("Enemy took " , char.calcDamage(enemy) , " damage")
-					else:
-						print("Character Missed")
-				
-					highlight_map.clear()
-					globs.char_to_act.erase(char)
-					globs.current_state = globs.GameState.SELECTING
-						
+					$Camera2D2/EnemyStatOverlay.setEnemyStats()
+					$Camera2D2/EnemyStatOverlay.visible = !$Camera2D2/EnemyStatOverlay.visible
+					#CODE MOVED TO ON ATTACK PRESSED
 						
 						
 						
 	if event is InputEventKey:
 		if globs.current_state == globs.GameState.CHOOSING:
-			if event.keycode == KEY_A and event.pressed:
-				print("Changed to Attacking")
-				globs.current_state = globs.GameState.ATTACKING
+			pass
+			#if event.keycode == KEY_A and event.pressed:
+				#print("Changed to Attacking")
+				#globs.current_state = globs.GameState.ATTACKING
 			#if event.keycode == KEY_M and event.pressed:
 				#print("Changed to Moving")
 				#$Camera2D2/PlayerMenu.visible = !$Camera2D2/PlayerMenu.visible
@@ -353,6 +347,27 @@ func doEnemyTurns():
 			else:
 				print("1 enemy didn't hit")
 		
-			
-		
-		
+
+func _on_attack_pressed() -> void:
+	$Camera2D2/EnemyStatOverlay.visible = !$Camera2D2/EnemyStatOverlay.visible
+	#$Camera2D2/PlayerMenu.visible = !$Camera2D2/PlayerMenu.visible
+	print("attacked enemy")
+	# DO ATTACK STUFF HERE __________________________________________________
+	
+	var check = randi_range(1, 100)
+	if char.calcHitrate(globs.selectedEnemy) <= check:
+		globs.selectedEnemy.takeDamage(char.calcDamage(globs.selectedEnemy))
+		print("Enemy took " , char.calcDamage(globs.selectedEnemy) , " damage")
+	else:
+		print("Character Missed")
+
+	highlight_map.clear()
+	globs.char_to_act.erase(char)
+	globs.current_state = globs.GameState.SELECTING
+						
+
+
+func _on_attack_button_pressed() -> void:
+	print("Changed to Attacking")
+	$Camera2D2/PlayerMenu.visible = !$Camera2D2/PlayerMenu.visible
+	globs.current_state = globs.GameState.ATTACKING

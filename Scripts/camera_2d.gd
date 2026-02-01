@@ -18,15 +18,15 @@ func _unhandled_input(_event:InputEvent) -> void:
 					panning = false
 				get_tree().get_root().set_input_as_handled()
 				
-			MOUSE_BUTTON_WHEEL_UP:
-				zoom_level = clamp(zoom_level + ZOOM_INCREMENT, ZOOM_MIN, ZOOM_MAX)
-				zoom = zoom_level * Vector2.ONE
-				get_tree().get_root().set_input_as_handled()
-				
-			MOUSE_BUTTON_WHEEL_DOWN:
-				zoom_level = clamp(zoom_level - ZOOM_INCREMENT, ZOOM_MIN, ZOOM_MAX)
-				zoom = zoom_level * Vector2.ONE
-				get_tree().get_root().set_input_as_handled()
+			#MOUSE_BUTTON_WHEEL_UP:
+				#zoom_level = clamp(zoom_level + ZOOM_INCREMENT, ZOOM_MIN, ZOOM_MAX)
+				#zoom = zoom_level * Vector2.ONE
+				#get_tree().get_root().set_input_as_handled()
+				#
+			#MOUSE_BUTTON_WHEEL_DOWN:
+				#zoom_level = clamp(zoom_level - ZOOM_INCREMENT, ZOOM_MIN, ZOOM_MAX)
+				#zoom = zoom_level * Vector2.ONE
+				#get_tree().get_root().set_input_as_handled()
 				
 	elif _event is InputEventMouseMotion and panning:
 		get_tree().get_root().set_input_as_handled()

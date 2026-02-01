@@ -3,6 +3,7 @@ extends Node
 enum weaponTypes {SWORD, GUN, TOME, KNUCKLES}
 
 var selectedPlayer:Unit = null
+var selectedEnemy:Unit = null
 
 enum GameState {
 	BEGIN_TURN,

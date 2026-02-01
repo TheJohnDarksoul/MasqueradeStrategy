@@ -75,6 +75,9 @@ z_index = 100
 [node name="PlayerMenu" parent="Camera2D2" index="0" unique_id=584369214]
 visible = false
 
+[node name="EnemyStatOverlay" parent="Camera2D2" index="1" unique_id=531348138]
+visible = false
+
 [node name="Unit" parent="." unique_id=1350438727 instance=ExtResource("4_pbw6q")]
 position = Vector2(50, 36)
 scale = Vector2(0.039, 0.039)
@@ -108,6 +111,10 @@ army = 0
 inventory = Array[ExtResource("7_vy5pj")]([ExtResource("10_bmxlf")])
 unitClass = ExtResource("7_jw32o")
 
+[connection signal="pressed" from="Camera2D2/PlayerMenu/VBoxContainer/Attack" to="." method="_on_attack_button_pressed"]
+[connection signal="pressed" from="Camera2D2/EnemyStatOverlay/Attack" to="." method="_on_attack_pressed"]
+
 [editable path="Camera2D2"]
 [editable path="Camera2D2/PlayerMenu"]
 [editable path="Camera2D2/PlayerMenu/ItemsMenu"]
+[editable path="Camera2D2/EnemyStatOverlay"]

@@ -5,6 +5,15 @@
 [ext_resource type="FontFile" uid="uid://cwnqw0nf1ngyn" path="res://Resources/Fonts/Jacquard12-Regular.ttf" id="2_knecd"]
 [ext_resource type="Texture2D" uid="uid://dv055ssoh0mmk" path="res://Assets/UI/the_only_button.png" id="3_bk84e"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_knecd"]
+texture = ExtResource("3_bk84e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bk84e"]
+texture = ExtResource("3_bk84e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wh3py"]
+texture = ExtResource("3_bk84e")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fqrog"]
 texture = ExtResource("3_bk84e")
 
@@ -33,7 +42,6 @@ texture = ExtResource("3_bk84e")
 texture = ExtResource("3_bk84e")
 
 [node name="PlayerMenu" type="Control" unique_id=584369214]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -56,6 +64,15 @@ offset_top = -66.0
 offset_right = -422.0
 grow_vertical = 0
 scale = Vector2(0.7562923, 0.7562923)
+
+[node name="Attack" type="Button" parent="VBoxContainer" unique_id=41906116]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_knecd")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxTexture_knecd")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bk84e")
+theme_override_styles/hover = SubResource("StyleBoxTexture_wh3py")
+text = "Attack"
 
 [node name="Move" type="Button" parent="VBoxContainer" unique_id=1639301053]
 layout_mode = 2

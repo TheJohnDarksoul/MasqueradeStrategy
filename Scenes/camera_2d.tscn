@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://3cit3csf5xkm" path="res://Scripts/camera_2d.gd" id="1_omgnx"]
 [ext_resource type="PackedScene" uid="uid://id7ysqfckhf" path="res://UI/PlayerMenus.tscn" id="2_ev1no"]
+[ext_resource type="PackedScene" uid="uid://cwayoheerx8qw" path="res://Scenes/Percentage.tscn" id="3_0e4st"]
 
 [node name="Camera2D" type="Camera2D" unique_id=79129806]
 scale = Vector2(0.38636872, 0.38636872)
@@ -9,7 +10,6 @@ zoom = Vector2(2.5, 2.5)
 script = ExtResource("1_omgnx")
 
 [node name="PlayerMenu" parent="." unique_id=584369214 instance=ExtResource("2_ev1no")]
-visible = true
 offset_left = 14.0
 offset_top = 303.0
 offset_right = 14.0
@@ -25,6 +25,12 @@ scale = Vector2(1.0347443, 1.0347443)
 [node name="HP" parent="PlayerMenu/ItemsMenu" index="11" unique_id=1595463783]
 offset_top = 565.0
 offset_bottom = 632.0
+
+[node name="EnemyStatOverlay" parent="." unique_id=531348138 instance=ExtResource("3_0e4st")]
+offset_left = -515.052
+offset_top = -383.05377
+offset_right = -515.052
+offset_bottom = -383.05377
 
 [editable path="PlayerMenu"]
 [editable path="PlayerMenu/ItemsMenu"]
