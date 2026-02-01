@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://wd0yckqsrh80" path="res://Scripts/main.gd" id="1_kln2b"]
 [ext_resource type="Texture2D" uid="uid://bfg0jubj6rrge" path="res://Assets/Level/level_atlas_01.png" id="2_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://dmwaxq3se2m8w" path="res://Scenes/Unit.tscn" id="4_pbw6q"]
-[ext_resource type="Script" uid="uid://3cit3csf5xkm" path="res://Scripts/camera_2d.gd" id="4_rgh2o"]
 [ext_resource type="Texture2D" uid="uid://cbyf344fsche6" path="res://Assets/Level/tile_example.png" id="4_v1gob"]
+[ext_resource type="PackedScene" uid="uid://bfv6ryus1033x" path="res://Scenes/camera_2d.tscn" id="5_erwvk"]
 [ext_resource type="Texture2D" uid="uid://cr1k382shxiq2" path="res://Assets/Level/background_01.png" id="5_pbw6q"]
 [ext_resource type="Texture2D" uid="uid://bqaootkcaijwh" path="res://Assets/Characters/dommy_mommy.png" id="7_grg3l"]
 [ext_resource type="Resource" uid="uid://hn0ifhmfhg6n" path="res://Resources/Classes/Detective.tres" id="7_jw32o"]
@@ -69,8 +69,11 @@ texture_filter = 1
 position = Vector2(0, -1)
 tile_set = SubResource("TileSet_v1gob")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1850589226]
-script = ExtResource("4_rgh2o")
+[node name="Camera2D2" parent="." unique_id=79129806 instance=ExtResource("5_erwvk")]
+z_index = 100
+
+[node name="PlayerMenu" parent="Camera2D2" index="0" unique_id=584369214]
+visible = false
 
 [node name="Unit" parent="." unique_id=1350438727 instance=ExtResource("4_pbw6q")]
 position = Vector2(50, 36)
@@ -103,3 +106,7 @@ UnitName = "Mommy, sorry mommy"
 army = 0
 inventory = Array[ExtResource("7_vy5pj")]([ExtResource("10_bmxlf")])
 unitClass = ExtResource("7_jw32o")
+
+[editable path="Camera2D2"]
+[editable path="Camera2D2/PlayerMenu"]
+[editable path="Camera2D2/PlayerMenu/ItemsMenu"]

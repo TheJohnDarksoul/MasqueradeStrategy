@@ -6,50 +6,59 @@ extends Node2D
 
 var astar := AStar2D.new()
 
-
-var mvt_setup = false
-
-var char_to_act = []
 var start_cell
 
-enum GameState {
-	BEGIN_TURN,
-	SELECTING,
-	CHOOSING,
-	MOVING,
-	ATTACKING,
-	ENEMY_TURN,
-}
-var current_state: GameState = GameState.BEGIN_TURN
+signal enemy_turn
+
+#enum GameState {
+	#BEGIN_TURN,
+	#SELECTING,
+	#CHOOSING,
+	#MOVING,
+	#ATTACKING,
+	#ENEMY_TURN,
+#}
+#var current_state: GameState = GameState.BEGIN_TURN
 
 
 func _ready() -> void:
+	emit_signal("enemy_turn")
 	highlight_map.visible = true
 	highlight_map.modulate = Color(0.115, 0.69, 0.0, 0.38)
 	rebuild_pathfinding(Tilemap)
 
 
 func _process(delta):
-	if current_state == GameState.MOVING:
-		if mvt_setup == true:
+	if globs.current_state == globs.GameState.MOVING:
+		if globs.mvt_setup == true:
 			start_cell = Tilemap.local_to_map(Tilemap.to_local(char.global_position))
 			var reachable = get_reachable_cells(start_cell, char.unitClass.movement)
 			highlight_reachable(reachable)
-			mvt_setup = false
+			globs.mvt_setup = false
 			
-	if current_state == GameState.ATTACKING:
-		if mvt_setup == true:
+	if globs.current_state == globs.GameState.ATTACKING:
+		if globs.mvt_setup == true:
 			rebuild_pathfinding_attack(Tilemap)
 			start_cell = Tilemap.local_to_map(Tilemap.to_local(char.global_position))
 			var reachable = get_reachable_cells(start_cell, char.inventory[0].weaponRange)
 			highlight_reachable(reachable)
-			mvt_setup = false
+			globs.mvt_setup = false
+			
+	if globs.current_state == globs.GameState.ENEMY_TURN:
+		if globs.eTurnSetup == true:
+			globs.eTurnSetup = false 
+			globs.mvt_setup == false
+			print("Changed to Enemy Turn")
+			globs.char_to_act = []
+			
+			doEnemyTurns()
+			globs.current_state = globs.GameState.BEGIN_TURN
 			
 			
-	if current_state == GameState.BEGIN_TURN:
-		char_to_act.append_array(get_friendly_units())
-		print(char_to_act)
-		current_state = GameState.SELECTING
+	if globs.current_state == globs.GameState.BEGIN_TURN:
+		globs.char_to_act.append_array(get_friendly_units())
+		print(globs.char_to_act)
+		globs.current_state = globs.GameState.SELECTING
 		
 	
 		
@@ -67,7 +76,7 @@ func _process(delta):
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			if current_state == GameState.MOVING:
+			if globs.current_state == globs.GameState.MOVING:
 				
 				var click_pos := get_global_mouse_position()
 				var target_cell := Tilemap.local_to_map(Tilemap.to_local(click_pos))
@@ -84,19 +93,20 @@ func _input(event):
 
 				var steps := path.size() - 1
 				if steps <= char.unitClass.movement:
+					$Camera2D2/PlayerMenu.visible = !$Camera2D2/PlayerMenu.visible
 					# Move to final tile (for now: instant move)
 					char.global_position = path[-1]
 					rebuild_pathfinding(Tilemap)
 					highlight_map.clear()
-					char_to_act.erase(char)
-					current_state = GameState.SELECTING
+					globs.char_to_act.erase(char)
+					globs.current_state = globs.GameState.SELECTING
 					
 					
-			elif current_state == GameState.SELECTING:
-				if len(char_to_act) == 0:
-					current_state = GameState.ENEMY_TURN
+			elif globs.current_state == globs.GameState.SELECTING:
+				if len(globs.char_to_act) == 0:
+					globs.current_state = globs.GameState.ENEMY_TURN
 					doEnemyTurns()
-					current_state = GameState.BEGIN_TURN
+					globs.current_state = globs.GameState.BEGIN_TURN
 				
 				var click_pos := get_global_mouse_position()
 				var target_cell := Tilemap.local_to_map(Tilemap.to_local(click_pos))
@@ -104,14 +114,15 @@ func _input(event):
 				
 				for u in units:
 					if target_cell == u[1]:
-						if u[0].army == 0 and u[0] in char_to_act:
+						if u[0].army == 0 and u[0] in globs.char_to_act:
 							char = u[0]
 							globs.selectedPlayer = u[0]
 							rebuild_pathfinding(Tilemap)
-							mvt_setup = true
-							current_state = GameState.CHOOSING
+							globs.mvt_setup = true
+							$Camera2D2/PlayerMenu.visible = !$Camera2D2/PlayerMenu.visible
+							globs.current_state = globs.GameState.CHOOSING
 						
-			elif current_state == GameState.ATTACKING:
+			elif globs.current_state == globs.GameState.ATTACKING:
 				
 				var click_pos := get_global_mouse_position()
 				var target_cell := Tilemap.local_to_map(Tilemap.to_local(click_pos))
@@ -148,27 +159,27 @@ func _input(event):
 					print("Enemy took " , char.calcDamage() , " damage")
 				
 					highlight_map.clear()
-					char_to_act.erase(char)
-					current_state = GameState.SELECTING
+					globs.char_to_act.erase(char)
+					globs.current_state = globs.GameState.SELECTING
 						
 						
 						
 						
 	if event is InputEventKey:
-		if current_state == GameState.CHOOSING:
+		if globs.current_state == globs.GameState.CHOOSING:
 			if event.keycode == KEY_A and event.pressed:
 				print("Changed to Attacking")
-				current_state = GameState.ATTACKING
-			if event.keycode == KEY_M and event.pressed:
-				print("Changed to Moving")
-				current_state = GameState.MOVING
-			if event.keycode == KEY_E and event.pressed:
-				print("Changed to Enemy Turn")
-				char_to_act = []
-				mvt_setup == false
-				current_state = GameState.ENEMY_TURN
-				doEnemyTurns()
-				current_state = GameState.BEGIN_TURN
+				globs.current_state = globs.GameState.ATTACKING
+			#if event.keycode == KEY_M and event.pressed:
+				#print("Changed to Moving")
+				#$Camera2D2/PlayerMenu.visible = !$Camera2D2/PlayerMenu.visible
+				#globs.current_state = globs.GameState.MOVING
+			#if event.keycode == KEY_E and event.pressed:
+				#print("Changed to Enemy Turn")
+				#globs.char_to_act = []
+				#globs.mvt_setup == false
+				#doEnemyTurns()
+				#globs.current_state = globs.GameState.BEGIN_TURN
 
 func build_astar(tilemap: TileMapLayer) -> void:
 	astar.clear()
