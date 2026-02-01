@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://q604jgdu3fax"]
+
+[ext_resource type="Script" uid="uid://cuvrebbw72p8g" path="res://Scripts/Items/Weapon.gd" id="1_4tb2u"]
+
+[resource]
+script = ExtResource("1_4tb2u")
+accuracy = 55
+weaponRange = 1
+name = "Pool Noodle"
